@@ -1,4 +1,4 @@
-<?php require "../php/translator.php"; ?>
+<?php $acc=false;  require "../php/translator.php"; ?>
 
 <!DOCTYPE html>
 <html>

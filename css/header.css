@@ -1,0 +1,123 @@
+header{
+  background-color: #3A3131;
+  /*background: linear-gradient(135deg, #E8016A, #EE3224);*/
+}
+header > div{
+  display: inline-block;
+  vertical-align: top;
+}
+header img{
+  height: 60px;
+  margin: 5px;
+}
+
+/* RIGHT BTNS */
+header > div.right{
+  float: right;
+  margin: auto 0;
+}
+header .dropdown-div{
+  height: 38px;
+  margin: 16px 16px 16px 0px;
+  display: flex;
+}
+header .dropdown-div button.right{
+  border-left: 1px solid #d2d2d2;
+}
+header .download-btn button{
+  border-radius: 2px;
+}
+header .dropdown-menu{
+  transform: translateX(-50%);
+}
+
+header a.language-link{
+  padding: 2px 10px;
+}
+header .dropdown-menu{
+  min-width: 0;
+  border-radius: 0;
+}
+/* NAV */
+header nav{
+  display: inline-block;
+}
+header nav ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  height: 70px;
+  transition: all 0.2s ease-in-out;
+}
+header nav ul li:hover{
+  background-color: #2b2424;
+}
+
+header nav ul li a{
+  display: block;
+  line-height: 70px;
+  padding: 0 20px;
+  font-size: 24px;
+  color: white;
+}
+header nav ul li a:hover{
+  color: white;
+}
+
+@media(max-width: 900px){
+	header .download-btn{
+		display: none;
+	}
+}
+@media(max-width: 700px){
+  header .nav-condensed-btn{
+		display: block;
+		float: right;
+	}
+
+	header nav{
+		z-index: 998;
+		float: left;
+		position: fixed;
+		top: 0px;
+		left: -40px;
+		height: 100%;
+		margin: 0;
+		background-color: rgb(235, 235, 235);
+		overflow-y: scroll;
+	}
+	.bodyfix{
+		overflow: hidden;
+	}
+	header nav .nav-list .list{
+		display: block;
+		margin: 0;
+
+	}
+	header nav .nav-list .list a{
+		color: rgb(50, 50, 50);
+		display: block;
+		padding: 15px;
+		padding-right: 100px;
+		font-size: 20px;
+		margin: 0;
+		border-bottom: 1px solid gray;
+	}
+	.filtre{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 2;
+		will-change: opacity;
+		cursor: pointer;
+	}
+}

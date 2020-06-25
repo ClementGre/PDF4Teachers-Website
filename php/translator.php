@@ -1,9 +1,6 @@
 <?php
-
-setcookie('language', 'fr');
-
 function getBrowserLanguage( $available = [], $default = 'en' ) {
-	if(isset($_SERVER[ 'HTTP_ACCEPT_LANGUAGE' ])){
+	if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
 
 		$langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
