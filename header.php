@@ -7,7 +7,7 @@
 </div>
 
 <div>
-  <nav>
+  <nav class="global-nav">
     <ul>
 
       <?php if($acc){ ?>
@@ -29,7 +29,15 @@
   </nav>
 </div>
 
-<div class="right">
+<div class="right menu-div">
+    <?php if($acc){ ?>
+      <a class="menu-link" href=""><img src="data/img/menu.png" /></a>
+    <?php }else{ ?>
+      <a class="menu-link" href=""><img src="../data/img/menu.png" /></a>
+    <?php } ?>
+</div>
+
+<div class="right right-and-left">
   <?php include 'php/languageButton.php'; ?>
 </div>
 

@@ -1,6 +1,5 @@
 <?php
 function getLastRelease(){
-  return "1.2.0";
   $context = stream_context_create(array('http'=>array('header' => "User-Agent:MyAgent/1.0\r\n")));
   $json = file_get_contents('https://api.github.com/repos/clementgre/PDF4Teachers/releases/latest', false, $context);
 

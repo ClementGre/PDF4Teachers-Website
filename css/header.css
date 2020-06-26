@@ -1,10 +1,24 @@
 header{
-  background-color: #3A3131;
-  /*background: linear-gradient(135deg, #E8016A, #EE3224);*/
+  /*background-color: #3A3131;*/
+  background: linear-gradient(135deg, #d1005f, #ce2c20);
+  animation-name: drop;
+  animation-duration: .5s;
 }
+@keyframes drop{
+  0%{
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(0%);
+  }
+}
+
 header > div{
   display: inline-block;
   vertical-align: top;
+}
+header > div > a > img {
+  margin: 5px 10px 5px 15px;
 }
 header img{
   height: 60px;
@@ -38,6 +52,19 @@ header .dropdown-menu{
   min-width: 0;
   border-radius: 0;
 }
+
+header .menu-link{
+  display: inline-block;
+  padding: 0 5px;
+  margin: 0 11px;
+  font-size: 24px;
+  height: 70px;
+  transition: all 0.2s ease-in-out;
+}
+header .menu-link:hover{
+  background-color: rgba(1, 1, 1, 0.1);
+}
+
 /* NAV */
 header nav{
   display: inline-block;
@@ -56,68 +83,80 @@ header nav ul li{
   transition: all 0.2s ease-in-out;
 }
 header nav ul li:hover{
-  background-color: #2b2424;
+  background-color: rgba(1, 1, 1, 0.1);
 }
 
 header nav ul li a{
   display: block;
   line-height: 70px;
-  padding: 0 20px;
-  font-size: 24px;
+  padding: 0 16px;
   color: white;
+  font-family: 'Varela Round', sans-serif;
+	font-size: 23px;
 }
 header nav ul li a:hover{
   color: white;
 }
+header .menu-div{
+  display: none;
+}
+header .filter{
+  display: none;
+}
 
 @media(max-width: 900px){
-	header .download-btn{
+	header .download-div{
 		display: none;
 	}
 }
 @media(max-width: 700px){
-  header .nav-condensed-btn{
-		display: block;
-		float: right;
-	}
+
+  header > div.right-and-left{
+    float: none;
+  }
+  header > div.right-and-left > .dropdown-div{
+    margin: 16px 0px 16px 0px;
+  }
+  body.bodyfix{
+    overflow: hidden;
+  }
+  header .menu-div{
+    display: block;
+  }
+  div.filter{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    will-change: opacity;
+    cursor: pointer;
+  }
 
 	header nav{
 		z-index: 998;
-		float: left;
 		position: fixed;
 		top: 0px;
-		left: -40px;
+		left: 0px;
 		height: 100%;
 		margin: 0;
 		background-color: rgb(235, 235, 235);
-		overflow-y: scroll;
+		overflow-y: auto;
 	}
-	.bodyfix{
-		overflow: hidden;
-	}
-	header nav .nav-list .list{
+  header nav ul li{
 		display: block;
-		margin: 0;
-
 	}
-	header nav .nav-list .list a{
-		color: rgb(50, 50, 50);
-		display: block;
-		padding: 15px;
-		padding-right: 100px;
-		font-size: 20px;
-		margin: 0;
-		border-bottom: 1px solid gray;
+  header nav ul li:hover{
+    background-color: rgba(1, 1, 1, 0.1);
 	}
-	.filtre{
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 100vh;
-		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 2;
-		will-change: opacity;
-		cursor: pointer;
+  header nav ul li a{
+		color: black;
+    padding: 0 50px 0 30px;
 	}
+  header nav ul li a:hover{
+    color: black;
+  }
 }

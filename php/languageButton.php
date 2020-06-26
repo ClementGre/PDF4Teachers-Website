@@ -1,5 +1,5 @@
-<div class="btn-group dropdown-div">
-  <button type="button" style="padding: 0px 8px 0px 0px;" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="btn-group dropdown-div language-div">
+  <button type="button" style="padding: 0px 8px 0px 0px; background-color: rgba(1, 1, 1, 0.2); border: none;" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <?php if($acc) $path = 'data/img/languages/' . $language . '.png';
     else $path = '../data/img/languages/' . $language . '.png';
     echo '<img style="height: 27px;" src="' . $path . '"/>'; ?>
