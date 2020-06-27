@@ -2,7 +2,7 @@ header{
   /*background-color: #3A3131;*/
   background: linear-gradient(135deg, #d1005f, #ce2c20);
 }
-@keyframes drop{
+@keyframes drop-header{
   0%{
     transform: translateY(-100%) skewX(45deg);
   }
@@ -14,7 +14,7 @@ header{
 header > div{
   display: inline-block;
   vertical-align: top;
-  animation-name: drop;
+  animation-name: drop-header;
   animation-duration: .5s;
 }
 header > div > a > img {
@@ -28,18 +28,28 @@ header img{
 /* RIGHT BTNS */
 header > div.right{
   float: right;
-  margin: auto 0;
 }
 header .dropdown-div{
   height: 38px;
   margin: 16px 16px 16px 0px;
-  display: flex;
+  vertical-align: middle;
+  border-radius: 3px;
 }
-header .dropdown-div button.right{
-
+header .download-div > .base-button{
+  padding: 0;
+  border: none;
 }
-header .download-btn button{
-  border-radius: 2px;
+header .download-div > .base-button > a{
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: white;
+  padding: 10px 12px;
+}
+header .download-div > .base-button > a:hover, a:active, a:focus{
+  text-decoration: none;
+  color: white;
+  outline: none;
 }
 header .dropdown-menu{
   transform: translateX(-50%);

@@ -4,11 +4,16 @@ body{
   font-size: 22px;
   overflow-x: hidden;
 }
+hr{
+  background: linear-gradient(135deg, #d1005f, #ce2c20);
+  height: 1px;
+  margin: 0;
+  border: none;
+}
 p{
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 22px;
-  color: white;
 }
 h1{
   font-family: 'Varela Round', sans-serif;
@@ -23,6 +28,11 @@ h2{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+h3{
+  font-family: 'Varela Round', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
 
 /*----- TITLE -----*/
 main > center.title{
@@ -33,7 +43,7 @@ main > center.title img{
   max-height: 100px;
   max-width: 100%;
   animation-name: title-drop;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
 }
 main > center.title .text{
   padding: 10px 15px;;
@@ -75,19 +85,14 @@ main > center.info{
 main > center.info p{
   max-width: 1000px;
 }
-main hr{
-  background: linear-gradient(135deg, #d1005f, #ce2c20);
-  height: 1px;
-  margin: 0;
-  border: none;
-}
 
 /*----- FEATURE-BLOCK -----*/
 main > div.feature-block{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2f3542;
+  background-color: #222f3e;
+  background-color: #dfe4ea;
 }
 
 main > div.feature-block > div{

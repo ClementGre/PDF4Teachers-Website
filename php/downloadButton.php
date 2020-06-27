@@ -25,9 +25,12 @@ if(gettype($oss) === "array"){
 
   $link = "https://github.com/ClementGre/PDF4Teachers/releases/download/<lastRelease>/";
 
+
+
   ?>
+
   <div class="btn-group dropdown-div download-div">
-    <a class="replace-lastrelease" href="<?= $link . $fileName ?>"><button type="button" class="btn btn-success"><?= t("button.download." . $oss[0]) ?></button></a>
+    <button type="button" class="btn btn-success base-button"><a class="replace-lastrelease" href="<?= $link . $fileName ?>"><?= t("button.download." . $oss[0]) ?></a></button>
     <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
     <div class="dropdown-menu">
 

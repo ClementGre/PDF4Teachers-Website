@@ -1,0 +1,59 @@
+footer{
+  background-color: #2f3640;
+  color: white;
+  display: block;
+}
+/*----- LINKS -----*/
+footer > .links{
+  max-width: 740px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+footer hr{
+  margin: 0 20px;
+}
+footer > .links > div{
+  display: inline-block;
+  margin: 20px;
+}
+footer > .links > div > *{
+  display: block;
+  font-size: 16px;
+}
+footer > .links > div > a{
+  color: #a5cfff;
+}
+/*----- BOTTOM-INFO -----*/
+footer > .bottom{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+footer > .bottom > div{
+  display: inline-block;
+  vertical-align: middle;
+}
+footer > .bottom > .left{
+  float: left;
+}
+footer > .bottom > .right{
+  float: right;
+}
+footer > .bottom h3{
+  margin: 10px;
+}
+/*----- ANIMATION -----*/
+footer > * {
+  animation-name: drop-footer;
+  animation-duration: .5s;
+}
+@keyframes drop-footer{
+  0%{
+    transform: translateY(150px) skewX(-45deg);
+  }
+  100%{
+    transform: initial;
+  }
+}
