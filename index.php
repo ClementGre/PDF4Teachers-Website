@@ -30,10 +30,43 @@
 
 <!--          MAIN          -->
 	<main>
-			<p>
-				<?= t("message.test") ?>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+
+		<center class="title">
+			<img src="data/img/title.png"/>
+			<br/>
+			<div class="text">
+				<h1><?= t("message.teaser") ?></h1>
+			</div>
+		</center>
+
+		<div class="feature-block from-left">
+			<div class="left image-div">
+				<img src="data/img/convert.png"/>
+			</div>
+			<div class="right text">
+				<h2><?= t("title.convert") ?></h2>
+				<p><?= t("text.convert") ?></p>
+			</div>
+		</div>
+		<div class="feature-block from-right">
+			<div class="left text">
+				<h2><?= t("title.edit") ?></h2>
+				<p><?= t("text.edit") ?></p>
+			</div>
+			<div class="right image-div">
+				<img src="data/img/edit.png"/>
+			</div>
+		</div>
+		<div class="feature-block from-left">
+			<div class="left image-div">
+				<img src="data/img/export.png"/>
+			</div>
+			<div class="right text">
+				<h2><?= t("title.export") ?></h2>
+				<p><?= t("text.export") ?></p>
+			</div>
+		</div>
+
 	</main>
 
 

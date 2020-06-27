@@ -1,1 +1,3 @@
-<?= t("message.footer") ?>
+<?php
+t("message.footer")
+?>

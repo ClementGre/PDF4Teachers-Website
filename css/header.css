@@ -1,21 +1,21 @@
 header{
   /*background-color: #3A3131;*/
   background: linear-gradient(135deg, #d1005f, #ce2c20);
-  animation-name: drop;
-  animation-duration: .5s;
 }
 @keyframes drop{
   0%{
-    transform: translateY(-100%);
+    transform: translateY(-100%) skewX(45deg);
   }
   100%{
-    transform: translateY(0%);
+    transform: initial;
   }
 }
 
 header > div{
   display: inline-block;
   vertical-align: top;
+  animation-name: drop;
+  animation-duration: .5s;
 }
 header > div > a > img {
   margin: 5px 10px 5px 15px;
@@ -36,7 +36,7 @@ header .dropdown-div{
   display: flex;
 }
 header .dropdown-div button.right{
-  border-left: 1px solid #d2d2d2;
+
 }
 header .download-btn button{
   border-radius: 2px;
