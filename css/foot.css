@@ -2,13 +2,14 @@ footer{
   background-color: #2f3640;
   color: white;
   display: block;
+  overflow: hidden;
 }
 /*----- LINKS -----*/
 footer > .links{
-  max-width: 740px;
+  max-width: 780px;
   margin: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 footer hr{

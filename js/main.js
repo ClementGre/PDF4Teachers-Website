@@ -1,5 +1,5 @@
 var resizeWindowFunction = function(){
-  if(document.body.clientWidth > 700){
+  if(document.body.clientWidth > 800){
     if($('.global-nav').hasClass('nav-hide')){ // Back to the inline view
       $(".global-nav").animate({left: 0}, 0);
       $('.filter').fadeOut(0); // hide filter
@@ -84,21 +84,28 @@ var readyFunction = function(){
 
   $(document).on("touchstart click", "a.language-link", function(e){
       e.preventDefault();
-      var href = $(this).attr("href");
-      document.cookie = "language=" + href + "; SameSite=strict";
+      document.cookie = "language=" + $(this).attr('href') + "; sameSite=Strict; path=/";
 
-      $.ajax({
-				url : document.location.href + "/index.php",
-				type : 'POST',
-				dataType : 'html',
+      /*$.ajax({
+        url : "php/translator.php",
+        type : 'POST',
+        data : "language=" + $(this).attr("href"),
+        dataType : 'html',
 
-				success : function(html, status){
-			   	document.body.innerHTML = html;
-          resizeWindowFunction();
-				}
-			});
+        success : function(html, status){*/
 
-  });
+          $.ajax({
+    				url : document.location.href + "/index.php",
+    				type : 'POST',
+    				dataType : 'html',
 
+    				success : function(html, status){
+    			   	document.body.innerHTML = html;
+              resizeWindowFunction();
+    				}
+    			});
+        /*}
+      }).fail(function(e){ document.body.innerHTML = JSON.stringify(e, null, 4); });*/
+    });
 }
 $(document).ready(readyFunction);

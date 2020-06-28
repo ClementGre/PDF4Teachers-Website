@@ -14,7 +14,7 @@ header{
 header > div{
   display: inline-block;
   vertical-align: top;
-  animation-name: drop-header;
+  /*animation-name: drop-header;*/
   animation-duration: .5s;
 }
 header > div > a > img {
@@ -28,10 +28,14 @@ header img{
 /* RIGHT BTNS */
 header > div.right{
   float: right;
+  margin: 16px 16px 16px 0px;
 }
+header > div.menu-div{
+  margin: 0px;
+}
+
 header .dropdown-div{
   height: 38px;
-  margin: 16px 16px 16px 0px;
   vertical-align: middle;
   border-radius: 3px;
 }
@@ -46,13 +50,24 @@ header .download-div > .base-button > a{
   color: white;
   padding: 10px 12px;
 }
-header .download-div > .base-button > a:hover, a:active, a:focus{
+header .download-div > .base-button > a:hover, header .download-div > .base-button > a:active, header .download-div > .base-button > a:focus{
   text-decoration: none;
   color: white;
   outline: none;
 }
 header .dropdown-menu{
   transform: translateX(-50%);
+}
+header i{
+  color: black;
+  font-size: 35px;
+  padding-left: 11.75px;
+  vertical-align: middle;
+  transition: all 0.2s ease-in-out;
+}
+header i:hover{
+  font-size: 39px;
+  margin: -2px;
 }
 
 header a.language-link{
@@ -80,7 +95,7 @@ header nav{
   display: inline-block;
 }
 header nav ul{
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
@@ -90,10 +105,11 @@ header nav ul li{
   padding: 0;
   margin: 0;
   height: 70px;
-  transition: all 0.2s ease-in-out;
 }
-header nav ul li:hover{
-  background-color: rgba(1, 1, 1, 0.1);
+header nav ul li.active{
+  background-color: rgba(0, 0, 0, 0.2);
+  text-decoration: underline;
+  color: white;
 }
 
 header nav ul li a{
@@ -103,9 +119,11 @@ header nav ul li a{
   color: white;
   font-family: 'Varela Round', sans-serif;
 	font-size: 23px;
+  transition: all 0.2s ease-in-out;
 }
 header nav ul li a:hover{
   color: white;
+  background-color: rgba(1, 1, 1, 0.1);
 }
 header .menu-div{
   display: none;
@@ -114,17 +132,15 @@ header .filter{
   display: none;
 }
 
-@media(max-width: 900px){
+@media(max-width: 1000px){
 	header .download-div{
 		display: none;
 	}
 }
-@media(max-width: 700px){
+@media(max-width: 800px){
 
   header > div.right-and-left{
     float: none;
-  }
-  header > div.right-and-left > .dropdown-div{
     margin: 16px 0px 16px 0px;
   }
   body.bodyfix{

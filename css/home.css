@@ -1,0 +1,98 @@
+/*----- TITLE -----*/
+main > center.title{
+  background: linear-gradient(135deg, #efad9e, #ddc2db);
+  padding: 40px 0;
+}
+main > center.title img{
+  max-height: 100px;
+  max-width: 100%;
+  animation-name: title-drop;
+  animation-duration: 1.5s;
+}
+main > center.title .text{
+  padding: 10px 15px;;
+  border-radius: 5px;
+  background-color: rgba(1, 1, 1, 0.05);
+  display: inline-block;
+  animation-name: text-drop;
+  animation-duration: .5s;
+}
+main > center.title h1{
+  background: linear-gradient(135deg, #d1005f, #ce2c20);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+@keyframes text-drop{
+0%{ transform: translateX(-100%)}
+100%{ transform: initial; }
+}
+@keyframes title-drop{
+0%{ opacity: 0;}
+100%{ opacity: 1;}
+}
+
+/*----- FEATURE-BLOCK -----*/
+main .features{
+  padding: 30px 0;
+}
+main .feature-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .feature-block > div{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 20px;
+  animation-duration: .5s;
+}
+main .feature-block > .right{
+  margin: 20px 40px 20px 0px;
+}
+@media(max-width: 900px){
+  main .feature-block > div{
+    margin: 20px;
+  }
+  main .feature-block > .right{
+    margin: 20px 20px 20px 0px;
+  }
+}
+@media(max-width: 700px){
+  main .feature-block > div{
+    margin: 10px;
+  }
+  main .feature-block > .right{
+    margin: 10px 10px 10px 0px;
+  }
+}
+main div.feature-block.from-left > div{
+  animation-name: from-left;
+}
+main div.feature-block.from-right > div{
+  animation-name: from-right;
+}
+main .feature-block .image-div{
+  border-radius: 50px;
+  width: 200px;
+  min-width: 150px;
+  min-height: 150px;
+  background: rgba(1, 1, 1, 0.2);
+  padding: 20px;
+}
+main .feature-block .image-div img{
+  width: 100%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+main .feature-block .text{
+  max-width: 500px;
+}
+main .feature-block h2{
+  background: linear-gradient(135deg, #d1005f, #ce2c20);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

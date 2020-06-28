@@ -14,6 +14,7 @@ p{
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 22px;
+  margin: 0;
 }
 h1{
   font-family: 'Varela Round', sans-serif;
@@ -22,11 +23,8 @@ h1{
 }
 h2{
   font-family: 'Varela Round', sans-serif;
-  font-size: 28px;
+  font-size: 21px;
   font-weight: 400;
-  background: linear-gradient(135deg, #d1005f, #ce2c20);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 h3{
   font-family: 'Varela Round', sans-serif;
@@ -34,100 +32,49 @@ h3{
   font-weight: 400;
 }
 
-/*----- TITLE -----*/
-main > center.title{
-  background: linear-gradient(135deg, #efad9e, #ddc2db);
-  padding: 40px 0;
-}
-main > center.title img{
-  max-height: 100px;
-  max-width: 100%;
-  animation-name: title-drop;
-  animation-duration: 1.5s;
-}
-main > center.title .text{
-  padding: 10px 15px;;
-  border-radius: 5px;
-  background-color: rgba(1, 1, 1, 0.05);
-  display: inline-block;
-  animation-name: text-drop;
-  animation-duration: .5s;
-}
-main > center.title h1{
-  background: linear-gradient(135deg, #d1005f, #ce2c20);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-}
-@keyframes text-drop{
-0%{ transform: translateX(-100%)}
-100%{ transform: initial; }
-}
-@keyframes title-drop{
-0%{ opacity: 0;}
-100%{ opacity: 1;}
-}
-
-/*----- INFO-BLOCK -----*/
-main > center.info{
-  padding: 40px;
-}
-@media(max-width: 900px){
-  main > center.info{
-    padding: 20px;
-  }
-}
-@media(max-width: 700px){
-  main > center.info{
-    padding: 10px;
-  }
-}
-main > center.info p{
-  max-width: 1000px;
-}
-
-/*----- FEATURE-BLOCK -----*/
-main > div.feature-block{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+main{
   background-color: #222f3e;
   background-color: #dfe4ea;
 }
+main li{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0;
+}
+main .liscence br{
+  display: block;
+  margin: 10px;
+}
 
-main > div.feature-block > div{
-  display: inline-block;
-  vertical-align: middle;
-  margin: 40px;
-  animation-duration: .5s;
+/*----- INFO-BLOCK -----*/
+main > .info{
+  padding: 40px;
+  animation: from-right-linear .5s;
+  max-width: 820px;
+  margin: auto;
+  background-color: white;
 }
-main > div.feature-block > .right{
-  margin: 40px 40px 40px 0px;
-}
-@media(max-width: 900px){
-  main > div.feature-block > div{
-    margin: 20px;
-  }
-  main > div.feature-block > .right{
-    margin: 20px 20px 20px 0px;
+@media(max-width: 1000px){
+  main > .info{
+    padding: 20px;
   }
 }
-@media(max-width: 700px){
-  main > div.feature-block > div{
-    margin: 20px 10px;
-  }
-  main > div.feature-block > .right{
-    margin: 20px 10px 20px 0px;
+@media(max-width: 800px){
+  main > .info{
+    padding: 20px 10px;
   }
 }
-main div.feature-block.from-right{
+main > .info p, main > .info hr{
+  font-size: 18px;
+  font-weight: 400;
 }
-main div.feature-block.from-left > div{
-  animation-name: from-left;
+main img.full{
+  width: 100%;
+  padding: 10px;
 }
-main div.feature-block.from-right > div{
-  animation-name: from-right;
-}
+
+/*----- ANIMATIONS -----*/
 @keyframes from-left{
   0%{ transform: translateX(100%) skewY(20deg);}
   100%{ transform: initial; }
@@ -136,22 +83,7 @@ main div.feature-block.from-right > div{
   0%{ transform: translateX(-100%) skewY(20deg); }
   100%{ transform: initial; }
 }
-main > div.feature-block .image-div{
-  border-radius: 50px;
-  width: 200px;
-  min-width: 150px;
-  min-height: 150px;
-  background: rgba(1, 1, 1, 0.2);
-  padding: 20px;
-}
-main > div.feature-block .image-div img{
-  width: 100%;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
-
-main > div.feature-block .text{
-  max-width: 500px;
+@keyframes from-right-linear{
+  0%{ transform: translateX(-100%) }
+  100%{ transform: initial; }
 }
