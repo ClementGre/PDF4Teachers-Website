@@ -19,6 +19,22 @@ var resizeWindowFunction = function(){
 }
 resizeWindowFunction();
 
+function getCookie(cname){
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while(c.charAt(0) == ' '){
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 var readyFunction = function(){
 
   var pageName = document.location.href.split('/').reverse()[1];
@@ -65,18 +81,35 @@ var readyFunction = function(){
 ///////////////////////// VARS definitions /////////////////////////
 ////////////////////////////////////////////////////////////////////
 
-  $.ajax({
-    url : "https://api.github.com/repos/clementgre/PDF4Teachers/releases/latest",
-    dataType : 'json',
+  var lastRelease = getCookie("lastRelease");
+  console.log(document.cookie);
+  console.log(getCookie("lastRelease"));
+  if(lastRelease == ""){
+    console.log("Using GitHub request to define last release");
+    $.ajax({
+      url : "https://api.github.com/repos/clementgre/PDF4Teachers/releases/latest",
+      dataType : 'json',
 
-    success : function(json, status){
-      lastRelease = json.tag_name;
-      $('a.replace-lastrelease').each(function(index){
-        var newUrl = $(this).attr("href").replace('<lastRelease>', lastRelease).replace('<lastRelease>', lastRelease);
-        $(this).attr("href", newUrl);
-      });
-    }
-  });
+      success : function(json, status){
+        lastRelease = json.tag_name;
+
+        var d = new Date();
+        d.setTime(d.getTime() + (10*60*1000)); // Cookie expire in 10 minutes
+        document.cookie = "lastRelease=" + lastRelease + "; expires=" + d.toUTCString() + "; sameSite=Strict; path=/";
+
+        $('a.replace-lastrelease').each(function(index){
+          var newUrl = $(this).attr("href").replace('<lastRelease>', lastRelease).replace('<lastRelease>', lastRelease);
+          $(this).attr("href", newUrl);
+        });
+      }
+    });
+  }else{
+    console.log("Using cookie to define last release");
+    $('a.replace-lastrelease').each(function(index){
+      var newUrl = $(this).attr("href").replace('<lastRelease>', lastRelease).replace('<lastRelease>', lastRelease);
+      $(this).attr("href", newUrl);
+    });
+  }
 
 ////////////////////////////////////////////////////////////////////
 ///////////////////////// Language /////////////////////////////////
