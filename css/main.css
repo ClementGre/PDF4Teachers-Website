@@ -3,6 +3,16 @@ body{
   font-weight: 300;
   font-size: 22px;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+html{
+  margin: 0;
+  padding: 0;
+}
+div{
+  margin: 0;
+  padding: 0;
 }
 hr{
   background: linear-gradient(135deg, #d1005f, #ce2c20);
@@ -86,4 +96,63 @@ main img.full{
 @keyframes from-right-linear{
   0%{ transform: translateX(-100%) }
   100%{ transform: initial; }
+}
+
+/*----- DOWNLOAD PAGE -----*/
+.download-page .info{
+  border-radius: 4px;
+  padding: 0;
+}
+.download-page .header{
+  display: flex;
+  justify-content: space-between;
+  background-color: #353b48;
+  align-items: center;
+  padding: 5px;
+  border-radius: 4px;
+}
+.download-page .info.pre-release .header{
+  background-color: #b33939;
+}
+.download-page .header > div{
+  display: flex;
+  align-items: center;
+}
+.download-page .header h2{
+  margin: 0;
+  color: white;
+}
+.download-page .header i{
+  margin: auto 10px;
+  font-size: 22px;
+  cursor: pointer;
+  align-self: center;
+  color: white;
+}
+.download-page .header a{
+  height: 39px;
+}
+.download-page .header i.fa-github{
+  font-size: 33px;
+  transition: all 0.2s ease-in-out;
+  vertical-align: middle;
+}
+.download-page .header i.fa-github:hover{
+  font-size: 37px;
+  margin: auto 8px;
+}
+.download-page .content{
+  padding: 20px;
+}
+@media(max-width: 800px){
+  .download-page .content{
+    padding: 10px;
+  }
+}
+.download-page .content br{
+  display: block;
+  margin: 10px;
+}
+.download-page .content h2, .download-page .content ul{
+  margin: 0;
 }

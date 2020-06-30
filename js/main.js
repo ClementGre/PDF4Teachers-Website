@@ -1,3 +1,5 @@
+var global = {};
+
 var resizeWindowFunction = function(){
   if(document.body.clientWidth > 800){
     if($('.global-nav').hasClass('nav-hide')){ // Back to the inline view
@@ -34,12 +36,162 @@ function getCookie(cname){
   }
   return "";
 }
+////////////////////////////////////////////////////////////////////
+///////////////////////// RELEASES REQUEST /////////////////////////
+////////////////////////////////////////////////////////////////////
+function getLastReleaseTag(callBack){
+  var lastRelease = getCookie("lastRelease");
+  if(lastRelease == ""){
+    console.log("Using GitHub request to define last release tag");
+    $.ajax({
+      url : "https://api.github.com/repos/clementgre/PDF4Teachers/releases/latest",
+      dataType : 'json',
+
+      success : function(json, status){
+        var d = new Date();
+        d.setTime(d.getTime() + (10*60*1000)); // Cookie expire in 10 Minutes
+        document.cookie = "lastRelease=" + json.tag_name + "; expires=" + d.toUTCString() + "; sameSite=Strict; path=/";
+        callBack(json.tag_name);
+      }
+    }).fail(function fail(){
+      callBack("");
+    });
+  }else{
+    console.log("Using cookie to define last release tag");
+    callBack(lastRelease);
+  }
+}
+function updateReleaseLinks(lastTag){
+  $('a.replace-lastrelease').each(function(index){
+    var newUrl = replaceAll($(this).attr("href"), '<lastRelease>', lastTag);
+    $(this).attr("href", newUrl);
+  });
+}
+
+function getReleasesTags(lastReleaseTag, callBack){
+  var releasesTags = getCookie("releasesTags");
+  if(releasesTags != ""){
+    if(releasesTags.split(",")[0] === lastReleaseTag || releasesTags.split(",")[1] === lastReleaseTag || releasesTags.split(",")[2] === lastReleaseTag){
+      console.log("Using cookie to define releases tags");
+      callBack(releasesTags.split(","));
+      return;
+    }
+  }
+  console.log("Using GitHub request to define releases tags");
+  $.ajax({
+    url : "https://api.github.com/repos/clementgre/PDF4Teachers/tags",
+    dataType : 'json',
+
+    success : function(json, status){
+
+      var tags = [];
+      for(var tag in json){ tags.push(json[tag].name); }
+
+      var d = new Date();
+      d.setTime(d.getTime() + (24*60*60*1000)); // Cookie expire in 1 Day
+      document.cookie = "releasesTags=" + tags.join(",") + "; expires=" + d.toUTCString() + "; sameSite=Strict; path=/";
+      callBack(tags);
+    }
+  }).fail(function fail(){
+    callBack([]);
+  });
+}
+async function loadDownloadPage(tag, tags){
+  for(var i = 0 ; i < tags.length ; i++){
+    
+    await $.ajax({
+      url : "../php/releasePanel.php",
+      type : "POST",
+      data : "tag=" + tags[i],
+      dataType : 'html',
+  
+      success : function(html, status){
+        var tag = tags[i];
+        $('main').append(html);
+        $('main a.replace-lastrelease').each(function(index){
+          var newUrl = replaceAll($(this).attr("href"), '<lastRelease>', tag);
+          $(this).attr("href", newUrl);
+        });
+
+        $(document).on('touchstart click', '.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-down', function(e){
+
+          $('.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-down').addClass('fa-chevron-up');
+          $('.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-down').removeClass('fa-chevron-down');
+          
+          if($('.release-' + replaceAll(tag, '.', '-') + ' .content').length){
+              $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideDown();
+          }else{
+            getDownloadPageContents(tag, function callBack(html){
+              $('.release-' + replaceAll(tag, '.', '-')).append(html);
+              $('.release-' + replaceAll(tag, '.', '-') + ' .content').fadeOut(0);
+              $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideDown();
+            });
+          }
+          
+
+          
+        });
+        $(document).on('touchstart click', '.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-up', function(e){
+          $('.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-up').addClass('fa-chevron-down'); 
+          $('.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-up').removeClass('fa-chevron-up');
+          $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideUp();
+        });
+
+      }
+    });
+  }
+}
+function replaceAll(text, pattern, replacement){
+  var newText = text.replace(pattern, replacement);
+  if(newText !== text){
+    return replaceAll(newText, pattern, replacement);
+  }
+  return newText;
+}
+function getDownloadPageContents(tag, callBack){
+
+  $.ajax({
+    url : "https://api.github.com/repos/clementgre/PDF4Teachers/releases/tags/" + tag,
+    dataType : 'json',
+
+    success : function(json, status){
+
+      var list = false;
+      var description = '<div class="content">';
+      for(var line of json.body.split('\r\n')){
+        if(line.startsWith("- ")){
+          if(!list){
+            list = true;
+            description += "<ul>";
+          }
+          description += '<li>' + line.replace('- ', '') + '</li>';
+        }else{
+          if(list){
+            list = false;
+            description += "</ul>";
+          }
+
+          if(line.startsWith("##")){
+            description += '<h2>' + line.replace('##', '') + '</h2>';
+          }else if(line === ""){
+            description += '<br/>';
+          }else{
+            description += '<p>' + line + '</p>';
+          }
+        }
+        
+      }
+      callBack(description + '</div>');
+    }
+  }).fail(function fail(){
+    callBack("");
+  });
+}
 
 var readyFunction = function(){
 
   var pageName = document.location.href.split('/').reverse()[1];
-  var lastRelease = "";
-
+  
 ////////////////////////////////////////////////////////////////////
 ///////////////////////// NAV //////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
@@ -78,38 +230,27 @@ var readyFunction = function(){
 	});
 
 ////////////////////////////////////////////////////////////////////
-///////////////////////// VARS definitions /////////////////////////
+///////////////////////// Releases /////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 
-  var lastRelease = getCookie("lastRelease");
-  console.log(document.cookie);
-  console.log(getCookie("lastRelease"));
-  if(lastRelease == ""){
-    console.log("Using GitHub request to define last release");
-    $.ajax({
-      url : "https://api.github.com/repos/clementgre/PDF4Teachers/releases/latest",
-      dataType : 'json',
 
-      success : function(json, status){
-        lastRelease = json.tag_name;
+  // GET LAST RELEASE TAG
+  getLastReleaseTag(function callBack(tag){
+    console.log("detected last release tag = " + tag);
+    global.lastReleaseTag = tag;
 
-        var d = new Date();
-        d.setTime(d.getTime() + (10*60*1000)); // Cookie expire in 10 minutes
-        document.cookie = "lastRelease=" + lastRelease + "; expires=" + d.toUTCString() + "; sameSite=Strict; path=/";
+    // CHANGE LINKS
+    updateReleaseLinks(tag);
 
-        $('a.replace-lastrelease').each(function(index){
-          var newUrl = $(this).attr("href").replace('<lastRelease>', lastRelease).replace('<lastRelease>', lastRelease);
-          $(this).attr("href", newUrl);
-        });
-      }
-    });
-  }else{
-    console.log("Using cookie to define last release");
-    $('a.replace-lastrelease').each(function(index){
-      var newUrl = $(this).attr("href").replace('<lastRelease>', lastRelease).replace('<lastRelease>', lastRelease);
-      $(this).attr("href", newUrl);
-    });
-  }
+    // DOWNLOAD PAGE
+    if(pageName === "Download"){
+      getReleasesTags(tag, function callBack(tags){
+        console.log("detected releases tags = " + tags);
+        loadDownloadPage(tag, tags);
+      })
+      $('.loader').fadeOut();
+    }
+  });
 
 ////////////////////////////////////////////////////////////////////
 ///////////////////////// Language /////////////////////////////////
@@ -119,26 +260,17 @@ var readyFunction = function(){
       e.preventDefault();
       document.cookie = "language=" + $(this).attr('href') + "; sameSite=Strict; path=/";
 
-      /*$.ajax({
-        url : "php/translator.php",
-        type : 'POST',
-        data : "language=" + $(this).attr("href"),
-        dataType : 'html',
+        $.ajax({
+          url : document.location.href + "/index.php",
+          type : 'POST',
+          dataType : 'html',
 
-        success : function(html, status){*/
-
-          $.ajax({
-    				url : document.location.href + "/index.php",
-    				type : 'POST',
-    				dataType : 'html',
-
-    				success : function(html, status){
-    			   	document.body.innerHTML = html;
-              resizeWindowFunction();
-    				}
-    			});
-        /*}
-      }).fail(function(e){ document.body.innerHTML = JSON.stringify(e, null, 4); });*/
+          success : function(html, status){
+            document.body.innerHTML = html;
+            resizeWindowFunction();
+            updateReleaseLinks(global.lastReleaseTag);
+          }
+        });
     });
 }
 $(document).ready(readyFunction);

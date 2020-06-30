@@ -34,28 +34,28 @@ header > div.menu-div{
   margin: 0px;
 }
 
-header .dropdown-div{
+.dropdown-div{
   height: 38px;
   vertical-align: middle;
   border-radius: 3px;
 }
-header .download-div > .base-button{
+.download-div > .base-button{
   padding: 0;
   border: none;
 }
-header .download-div > .base-button > a{
+.download-div > .base-button > a{
   text-decoration: none;
   margin: 0;
   padding: 0;
   color: white;
   padding: 10px 12px;
 }
-header .download-div > .base-button > a:hover, header .download-div > .base-button > a:active, header .download-div > .base-button > a:focus{
+.download-div > .base-button > a:hover, .download-div > .base-button > a:active, .download-div > .base-button > a:focus{
   text-decoration: none;
   color: white;
   outline: none;
 }
-header .dropdown-menu{
+.dropdown-menu{
   transform: translateX(-50%);
 }
 header i{

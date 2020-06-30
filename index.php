@@ -4,10 +4,10 @@
 <html>
 <!--          PAGE INFO          -->
 <head>
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<link rel="icon" href="data/img/logo.png" />
-	<title>PDF4Teachers - Site Officiel | Accueil</title>
+	<meta name="description" content="<?= t("page.description") ?>" />
+	<meta name="keywords" content="<?= t("page.keywords") ?>" />
+	<link rel="icon" href="../data/img/logo.png" />
+	<title><?= t("page.name") ?></title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta charset="utf-8">

@@ -1,10 +1,10 @@
-<?php $acc=false; $page="Documentation"; require "../php/translator.php"; ?>
+<?php $acc=false; $page="Download"; require "../php/translator.php"; ?>
 
 <!DOCTYPE html>
 <html>
 <!--          PAGE INFO          -->
 <head>
-<meta name="description" content="<?= t("page.description") ?>" />
+	<meta name="description" content="<?= t("page.description") ?>" />
 	<meta name="keywords" content="<?= t("page.keywords") ?>" />
 	<link rel="icon" href="../data/img/logo.png" />
 	<title><?= t("page.name") ?></title>
@@ -17,33 +17,35 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="../css/header.css" />
-  <link rel="stylesheet" type="text/css" href="../css/main.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css" />
 	<link rel="stylesheet" type="text/css" href="../css/foot.css" />
 
 </head>
+
 <body>
 	<div class="filter"></div>
 <!--          HEADER          -->
-	<header>
-		<?php include '../header.php'; ?>
-	</header>
-
+<header>
+	<?php include '../header.php'; ?>
+</header>
 
 <!--          MAIN          -->
-	<main>
-		<iframe src="../data/documentation/<?= $language ?>.pdf" style="width: 100%;  height: 80vh; border: none; margin: -1px 0 -8px 0;"></iframe>
-	</main>
+<main class="download-page">
+
+	<div class="loader" style="height: 100vh;"></div>
+	<br>
+	
+</main>
 
 <!--          FOOTER          -->
-	<footer>
-		<?php include '../footer.php'; ?>
-	</footer>
-
+<footer>
+	<?php include '../footer.php'; ?>
 	<script type='text/javascript' src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
+</footer>
 
 </body>
 </html>
