@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/header.css" />
 	<link rel="stylesheet" type="text/css" href="../css/main.css" />
 	<link rel="stylesheet" type="text/css" href="../css/foot.css" />
+	<link rel="stylesheet" type="text/css" href="../css/download.css" />
 
 </head>
 
@@ -31,8 +32,6 @@
 
 <!--          MAIN          -->
 <main class="download-page">
-
-	<div class="loader" style="height: 100vh;"></div>
 	<br>
 	
 </main>

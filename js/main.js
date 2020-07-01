@@ -96,7 +96,7 @@ function getReleasesTags(lastReleaseTag, callBack){
     callBack([]);
   });
 }
-async function loadDownloadPage(tag, tags){
+async function loadDownloadPage(lastTag, toOpenTag, tags){
   for(var i = 0 ; i < tags.length ; i++){
     
     await $.ajax({
@@ -113,33 +113,46 @@ async function loadDownloadPage(tag, tags){
           $(this).attr("href", newUrl);
         });
 
-        $(document).on('touchstart click', '.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-down', function(e){
-
-          $('.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-down').addClass('fa-chevron-up');
-          $('.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-down').removeClass('fa-chevron-down');
+        $(document).on('touchstart click', '.release-' + replaceAll(tag, '.', '-') + ' i.fas', function(e){
+          if($(this).hasClass('animate')) return;
           
-          if($('.release-' + replaceAll(tag, '.', '-') + ' .content').length){
-              $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideDown();
-          }else{
-            getDownloadPageContents(tag, function callBack(html){
-              $('.release-' + replaceAll(tag, '.', '-')).append(html);
-              $('.release-' + replaceAll(tag, '.', '-') + ' .content').fadeOut(0);
-              $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideDown();
+          if($(this).hasClass('fa-chevron-down')){
+            $(this).addClass('animate');
+
+            if($('.release-' + replaceAll(tag, '.', '-') + ' .content').length){
+              $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideDown(function complete(){
+                $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').removeClass('animate');
+                $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').removeClass('fa-chevron-down');
+                $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').addClass('fa-chevron-up');
+              });
+            }else{
+              getDownloadPageContents(tag, function callBack(html){
+                $('.release-' + replaceAll(tag, '.', '-')).append(html);
+                $('.release-' + replaceAll(tag, '.', '-') + ' .content').fadeOut(0);
+                $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideDown(function complete(){
+                  $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').removeClass('animate');
+                  $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').removeClass('fa-chevron-down');
+                  $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').addClass('fa-chevron-up');
+                });
+              });
+            }
+          }else if($(this).hasClass('fa-chevron-up')){
+            $(this).addClass('animate');
+            $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideUp(function complete(){
+              $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').removeClass('animate');
+              $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').removeClass('fa-chevron-up');
+              $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').addClass('fa-chevron-down');
             });
           }
-          
-
-          
         });
-        $(document).on('touchstart click', '.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-up', function(e){
-          $('.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-up').addClass('fa-chevron-down'); 
-          $('.release-' + replaceAll(tag, '.', '-') + ' .fa-chevron-up').removeClass('fa-chevron-up');
-          $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideUp();
-        });
-
       }
     });
   }
+  console.log($('.release-' + replaceAll(toOpenTag, '.', '-')).offset().top);
+  
+  $('html').scrollTop($('.release-' + replaceAll(toOpenTag, '.', '-')).offset().top - 200);
+  $('.release-' + replaceAll(toOpenTag, '.', '-') + ' i.fas').trigger("click");
+  
 }
 function replaceAll(text, pattern, replacement){
   var newText = text.replace(pattern, replacement);
@@ -157,7 +170,7 @@ function getDownloadPageContents(tag, callBack){
     success : function(json, status){
 
       var list = false;
-      var description = '<div class="content">';
+      var description = '';
       for(var line of json.body.split('\r\n')){
         if(line.startsWith("- ")){
           if(!list){
@@ -179,18 +192,35 @@ function getDownloadPageContents(tag, callBack){
             description += '<p>' + line + '</p>';
           }
         }
-        
       }
-      callBack(description + '</div>');
+      if(list) description += "</ul>";
+
+      var downloads = '<div class="downloads"><div class="title"><h2>Assets</h2><p class="date">' + json.published_at.split('T')[0].replace('-', ' ').replace('-', '/') + '</p></div><br/>';
+      for(var asset of json.assets){
+        downloads += '<div class="asset"><a href="' + asset.browser_download_url + '">' + asset.name + '</a><p>' + asset.download_count + ' downloads</p></div>';
+      }
+      downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.zip">Source code (zip)</a></div>';
+      downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.tar.gz">Source code (tar.gz)</a></div>';
+      downloads += '</div>';
+
+      callBack('<div class="content">' + description + '<br/>' + downloads + '</div>');
     }
   }).fail(function fail(){
     callBack("");
   });
 }
+function getData(data, key){
+  var value = data.split(key + "=");
+  if(value.length >= 2){
+    return value[1].split('&')[0];
+  }
+  return '';
+}
 
 var readyFunction = function(){
 
   var pageName = document.location.href.split('/').reverse()[1];
+  var data = document.location.href.split('?').length >= 2 ? document.location.href.split('?')[1] : "";
   
 ////////////////////////////////////////////////////////////////////
 ///////////////////////// NAV //////////////////////////////////////
@@ -201,8 +231,9 @@ var readyFunction = function(){
     e.preventDefault();
 
 		if($('.global-nav').hasClass('nav-hide')){
+      $('nav').fadeIn(0);
       $(".global-nav").animate({left: 0}, 500);
-			$('.filter').fadeIn(500); // Show filter
+      $('.filter').fadeIn(500); // Show filter
       $('body').addClass('bodyfix'); // Disable scroll on body
 			setTimeout(function(){
 				$('.global-nav').removeClass('nav-hide'); // Remove hide nav info
@@ -234,6 +265,9 @@ var readyFunction = function(){
 ////////////////////////////////////////////////////////////////////
 
 
+  global.lastReleaseTag = "";
+  global.tags = "";
+
   // GET LAST RELEASE TAG
   getLastReleaseTag(function callBack(tag){
     console.log("detected last release tag = " + tag);
@@ -245,10 +279,10 @@ var readyFunction = function(){
     // DOWNLOAD PAGE
     if(pageName === "Download"){
       getReleasesTags(tag, function callBack(tags){
+        global.tags = tags;
         console.log("detected releases tags = " + tags);
-        loadDownloadPage(tag, tags);
+        loadDownloadPage(tag, (getData(data, "v") === "" ? tag : getData(data, "v")), tags);
       })
-      $('.loader').fadeOut();
     }
   });
 
@@ -268,7 +302,17 @@ var readyFunction = function(){
           success : function(html, status){
             document.body.innerHTML = html;
             resizeWindowFunction();
+
+            // CHANGE LINKS
             updateReleaseLinks(global.lastReleaseTag);
+
+            // DOWNLOAD PAGE
+            if(pageName === "Download"){
+              getReleasesTags(global.lastReleaseTag, function callBack(tags){
+                loadDownloadPage(global.lastReleaseTag, (getData(data, "v") === "" ? global.lastReleaseTag : getData(data, "v")), global.tags);
+              })
+            }
+
           }
         });
     });

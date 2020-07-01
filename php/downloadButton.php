@@ -24,9 +24,6 @@ if(gettype($oss) === "array"){
   }
 
   $link = "https://github.com/ClementGre/PDF4Teachers/releases/download/<lastRelease>/";
-
-
-
   ?>
 
   <div class="btn-group dropdown-div download-div">
@@ -58,12 +55,18 @@ if(gettype($oss) === "array"){
       }
       ?>
 
-      <?php if($acc){
-        echo '<a class="dropdown-item" href="Download/">' . t("button.download.openpage") . '</a>';
-      }else{
-        echo '<a class="dropdown-item" href="../Download/">' . t("button.download.openpage") . '</a>';
-      } ?>
-      <a class="dropdown-item" href="https://github.com/ClementGre/PDF4Teachers/releases/latest" target="_blank"><?= t("button.download.opengithub") ?></a>
+      <?php 
+        if(!isset($assignedButton)){
+          if($acc){
+            echo '<a class="dropdown-item replace-lastrelease" href="Download?v=<lastRelease>">' . t("button.download.openpage") . '</a>';
+          }else{
+            echo '<a class="dropdown-item replace-lastrelease" href="../Download?v=<lastRelease>">' . t("button.download.openpage") . '</a>';
+          }
+        ?>
+        <a class="dropdown-item replace-lastrelease" href="https://github.com/ClementGre/PDF4Teachers/releases/tag/<lastRelease>" target="_blank"><?= t("button.download.opengithub") ?></a>
+        <?php
+        } 
+      ?>
     </div>
   </div>
 <?php }else{ ?>
