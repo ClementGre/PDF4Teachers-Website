@@ -45,7 +45,7 @@
 		<p>
 			<?= t("text.complementary.disclaimer") ?>
 			<br/><br/>
-			<?= t("text.complementary.liscence") ?>
+			<?= t("text.complementary.license") ?>
 			<br/><br/>
 			<?= t("text.complementary.more") ?>
 		</p>

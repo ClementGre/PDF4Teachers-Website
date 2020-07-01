@@ -3,10 +3,10 @@
     <h3><?= t("title.pages") ?></h3>
     <?php if($acc){ ?>
       <a href="Documentation"><i class="fas fa-book"></i>&nbsp;&nbsp;<?= t("linkname.github.documentation") ?></i>&nbsp;</a>
-      <a href="Liscence"><i class="fas fa-file-signature"></i>&nbsp;<?= t("linkname.github.liscence") ?></a>
+      <a href="License"><i class="fas fa-file-signature"></i>&nbsp;<?= t("linkname.github.liscence") ?></a>
     <?php }else{ ?>
       <a href="../Documentation"><i class="fas fa-book"></i>&nbsp;&nbsp;<?= t("linkname.github.documentation") ?></a>
-      <a href="../Liscence"><i class="fas fa-file-signature"></i>&nbsp;<?= t("linkname.github.liscence") ?></a>
+      <a href="../License"><i class="fas fa-file-signature"></i>&nbsp;<?= t("linkname.github.liscence") ?></a>
     <?php } ?>
   </div>
   <div>
