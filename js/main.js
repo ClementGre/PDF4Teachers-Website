@@ -197,7 +197,7 @@ function getDownloadPageContents(tag, callBack){
 
       var downloads = '<div class="downloads"><div class="title"><h2>Assets</h2><p class="date">' + json.published_at.split('T')[0].replace('-', ' ').replace('-', '/') + '</p></div><br/>';
       for(var asset of json.assets){
-        downloads += '<div class="asset"><a href="' + asset.browser_download_url + '">' + asset.name + '</a><p>' + asset.download_count + ' downloads</p></div>';
+        downloads += '<div class="asset"><a href="' + asset.browser_download_url + '">' + asset.name + '</a><p>' + asset.download_count + ' downloads - ' + Math.floor(asset.size/1000000) + ' MB</p></div>';
       }
       downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.zip">Source code (zip)</a></div>';
       downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.tar.gz">Source code (tar.gz)</a></div>';

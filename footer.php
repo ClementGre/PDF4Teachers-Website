@@ -26,7 +26,7 @@
 <hr/>
 <div class="bottom">
   <h3 class="left">Copyright &copy; PDF4Teachers - 2020</h3>
-  <h3 class="right"><?= t("message.developper") ?></h3>
+  <h3 class="right"><?= t("message.developper") ?><?php if(strcmp(t("message.translator"), "traduit par xxx") !== 0){ echo ', ' . t("message.translator"); } ?></h3>
 </div>
 
 <?php

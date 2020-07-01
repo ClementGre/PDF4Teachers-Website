@@ -37,17 +37,20 @@ if(isset($_POST['language'])){
 
 	if(file_exists(realpath('translations/'))){
 		foreach(file($translationsFile, true) as $line){
-			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => explode('=', $line, 2)[1]));
+			$value = explode('=', $line, 2)[1];
+			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => substr($value, 0, strlen($value)-1)));
 		}
 	}
 
 	if($acc){
 		foreach(file(realpath('commonTranslations/' . $language . '.properties'), true) as $line){
-			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => explode('=', $line, 2)[1]));
+			$value = explode('=', $line, 2)[1];
+			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => substr($value, 0, strlen($value)-1)));
 		}
 	}else{
 		foreach(file(realpath('../commonTranslations/' . $language . '.properties'), true) as $line){
-			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => explode('=', $line, 2)[1]));
+			$value = explode('=', $line, 2)[1];
+			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => substr($value, 0, strlen($value)-1)));
 		}
 	}
 
