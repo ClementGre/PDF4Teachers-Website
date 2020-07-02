@@ -21,6 +21,13 @@
 	<link rel="stylesheet" type="text/css" href="../css/foot.css" />
 	<link rel="stylesheet" type="text/css" href="../css/download.css" />
 
+	<variable class="language"><?= $language ?></variable>
+	<variable class="tr-mb"><?= t("suffix.mega-Byte") ?></variable>
+	<variable class="tr-files"><?= t("title.files") ?></variable>
+	<variable class="tr-downloads"><?= t("suffix.downloads") ?></variable>
+	<variable class="tr-english-date"><?= t("var.english-date") ?></variable>
+	<variable class="tr-source-code"><?= t("file-name.source-code") ?></variable>
+
 </head>
 
 <body>

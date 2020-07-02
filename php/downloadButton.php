@@ -1,9 +1,8 @@
 <?php
-include 'version/getOs.php';
+include 'getOs.php';
 $oss = getOss();
 
 if(gettype($oss) === "array"){
-  include 'version/getLastRelease.php';
   $fileName;
   switch($oss[0]){
     case "windows":

@@ -33,22 +33,14 @@
 <main>
 	<div class="info">
 		<h2><?= t("title.features-description") ?></h2><br/>
-		<p>
-			<?= t("text.features-description.presentation") ?>
-			<br/><br/>
-			<?= t("text.features-description.main-feature") ?>
-			<br/><br/>
-			<?= t("text.features-description.secondary-feature") ?>
-		</p>
+		<p><?= t("text.features-description.presentation") ?><br/><br/>
+			<?= t("text.features-description.main-feature") ?><br/><br/>
+			<?= t("text.features-description.secondary-feature") ?></p>
 		<br><hr><br>
 		<h2><?= t("title.complementary") ?></h2><br/>
-		<p>
-			<?= t("text.complementary.disclaimer") ?>
-			<br/><br/>
-			<?= t("text.complementary.license") ?>
-			<br/><br/>
-			<?= t("text.complementary.more") ?>
-		</p>
+		<p><?= t("text.complementary.disclaimer") ?><br/><br/>
+			<?= t("text.complementary.license") ?><br/><br/>
+			<?= t("text.complementary.more") ?></p>
 	</div>
 </main>
 

@@ -1,5 +1,6 @@
 var global = {};
 
+
 var resizeWindowFunction = function(){
   if(document.body.clientWidth > 800){
     if($('.global-nav').hasClass('nav-hide')){ // Back to the inline view
@@ -148,7 +149,6 @@ async function loadDownloadPage(lastTag, toOpenTag, tags){
       }
     });
   }
-  console.log($('.release-' + replaceAll(toOpenTag, '.', '-')).offset().top);
   
   $('html').scrollTop($('.release-' + replaceAll(toOpenTag, '.', '-')).offset().top - 200);
   $('.release-' + replaceAll(toOpenTag, '.', '-') + ' i.fas').trigger("click");
@@ -161,6 +161,9 @@ function replaceAll(text, pattern, replacement){
   }
   return newText;
 }
+function getHtmlVar(key){
+  return $('variable.' + key).text();
+}
 function getDownloadPageContents(tag, callBack){
 
   $.ajax({
@@ -169,9 +172,23 @@ function getDownloadPageContents(tag, callBack){
 
     success : function(json, status){
 
+      var datas = new Map();
+      for(var text of json.body.split('\r\n\r\n# ')){
+        if(text.startsWith('# ')) text = text.replace('# ', '');
+        var lang = text.substring(0, text.indexOf(' '));
+        var desc = text.substring(text.indexOf('\r\n') + 1);
+        datas.set(lang, desc);
+      }
+
+      var data = "";
+      if(datas.has(getHtmlVar("language"))) data = datas.get(getHtmlVar("language"));
+      else if(datas.has('en')) data = datas.get('en');
+      else if(datas.has('fr')) data = datas.get('fr');
+      else data = json.body + '<br/>';
+      
       var list = false;
       var description = '';
-      for(var line of json.body.split('\r\n')){
+      for(var line of data.split('## 🌐')[0].split('\r\n')){
         if(line.startsWith("- ")){
           if(!list){
             list = true;
@@ -195,15 +212,25 @@ function getDownloadPageContents(tag, callBack){
       }
       if(list) description += "</ul>";
 
-      var downloads = '<div class="downloads"><div class="title"><h2>Assets</h2><p class="date">' + json.published_at.split('T')[0].replace('-', ' ').replace('-', '/') + '</p></div><br/>';
-      for(var asset of json.assets){
-        downloads += '<div class="asset"><a href="' + asset.browser_download_url + '">' + asset.name + '</a><p>' + asset.download_count + ' downloads - ' + Math.floor(asset.size/1000000) + ' MB</p></div>';
+      if(getHtmlVar("tr-english-date") === "false"){
+        var year = json.published_at.split('T')[0].split('-')[0];
+        var month = json.published_at.split('T')[0].split('-')[1];
+        var day = json.published_at.split('T')[0].split('-')[2];
+        var date = year + ' ' + day + '/' + month;
+      }else{
+        var date = json.published_at.split('T')[0].replace('-', ' ').replace('-', '/');
       }
-      downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.zip">Source code (zip)</a></div>';
-      downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.tar.gz">Source code (tar.gz)</a></div>';
+
+      var downloads = '<div class="downloads"><div class="title"><h2>' + getHtmlVar("tr-files") + '</h2><p class="date">' + date + '</p></div><br/>';
+      for(var asset of json.assets){
+        downloads += '<div class="asset"><a href="' + asset.browser_download_url + '">' + asset.name + '</a><p>' + asset.download_count + ' ' + getHtmlVar("tr-downloads") + ' - ' + Math.floor(asset.size/1000000) + ' ' + getHtmlVar("tr-mb") + '</p></div>';
+      }
+      
+      downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.zip">' + getHtmlVar("tr-source-code") + ' (zip)</a></div>';
+      downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.tar.gz">' + getHtmlVar("tr-source-code") + ' (tar.gz)</a></div>';
       downloads += '</div>';
 
-      callBack('<div class="content">' + description + '<br/>' + downloads + '</div>');
+      callBack('<div class="content">' + description + downloads + '</div>');
     }
   }).fail(function fail(){
     callBack("");
