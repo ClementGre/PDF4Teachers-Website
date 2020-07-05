@@ -38,19 +38,19 @@ if(isset($_POST['language'])){
 	if(file_exists(realpath('translations/'))){
 		foreach(file($translationsFile, true) as $line){
 			$value = explode('=', $line, 2)[1];
-			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((mb_ord(substr($value, -1)) == 10) ? substr($value, 0, -1) : $value)));
+			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((ord(substr($value, -1)) == 10 || ord(substr($value, -1)) == 13) ? substr($value, 0, -1) : $value)));
 		}
 	}
 
 	if($acc){
 		foreach(file(realpath('commonTranslations/' . $language . '.properties'), true) as $line){
 			$value = explode('=', $line, 2)[1];
-			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((mb_ord(substr($value, -1)) == 10) ? substr($value, 0, -1) : $value)));
+			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((ord(substr($value, -1)) == 10 || ord(substr($value, -1)) == 13) ? substr($value, 0, -1) : $value)));
 		}
 	}else{
 		foreach(file(realpath('../commonTranslations/' . $language . '.properties'), true) as $line){
 			$value = explode('=', $line, 2)[1];
-			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((mb_ord(substr($value, -1)) == 10) ? substr($value, 0, -1) : $value)));
+			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((ord(substr($value, -1)) == 10 || ord(substr($value, -1)) == 13) ? substr($value, 0, -1) : $value)));
 		}
 	}
 
