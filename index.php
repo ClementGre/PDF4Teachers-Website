@@ -4,6 +4,8 @@
 <html>
 <!--          PAGE INFO          -->
 <head>
+	<?php require 'analytics.php'; ?>
+
 	<meta name="description" content="<?= t("page.description") ?>" />
 	<meta name="keywords" content="<?= t("page.keywords") ?>" />
 	<link rel="icon" href="data/img/logo.png" />
