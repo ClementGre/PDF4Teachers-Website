@@ -1,1 +1,7 @@
-ErrorDocument 404 /web/PDF4Teachers-Website/404/
+ErrorDocument 404 /404/
+ErrorDocument 403 /403/
+ErrorDocument 500 /500/
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www.pdf4teachers.org [NC]
+RewriteRule ^(.*)$ https://pdf4teachers.org/$1 [R=301,L]
