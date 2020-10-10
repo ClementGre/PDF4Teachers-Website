@@ -21,8 +21,12 @@ if(isset($_POST['language'])){
 	}
 	$languages = ['fr', 'en'];
 
-	// Detect language with cookie or navigator language
-	if(isset($_COOKIE['language'])){
+	// Detect language with url, cookie 🍪 or navigator language
+	$urlLang = explode(".", $_SERVER["SERVER_NAME"])[0];
+	if(in_array($urlLang, $languages)){
+		setcookie('language', $urlLang, array('samesite' => 'strict', 'path' => '/'));
+		$language = $urlLang;
+	}else if(isset($_COOKIE['language'])){
 		if(in_array($_COOKIE['language'], $languages)){
 			$language = $_COOKIE['language'];
 		}else{

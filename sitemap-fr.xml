@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+<loc>https://fr.pdf4teachers.org/</loc>
+<lastmod>2020-06-06</lastmod>
+<priority>1</priority>
+</url>
+
+<url>
+<loc>https://fr.pdf4teachers.org/Download</loc>
+<lastmod>2020-06-06</lastmod>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://fr.pdf4teachers.org/About</loc>
+<lastmod>2020-06-06</lastmod>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://fr.pdf4teachers.org/License</loc>
+<lastmod>2020-06-06</lastmod>
+<priority>0.4</priority>
+</url>
+
+<url>
+<loc>https://fr.pdf4teachers.org/Documentation</loc>
+<lastmod>2020-06-06</lastmod>
+<priority>0.4</priority>
+</url>
+
+</urlset> 

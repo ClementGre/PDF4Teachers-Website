@@ -319,9 +319,15 @@ var readyFunction = function(){
 
   $(document).on("touchstart click", "a.language-link", function(e){
       e.preventDefault();
-      document.cookie = "language=" + $(this).attr('href') + "; sameSite=Strict; path=/";
-
-        $.ajax({
+      document.cookie = "language=" + $(this).attr('href') + "; sameSite=Strict; domain=pdf4teachers.org;path=/";
+      
+      var hostUrl = location.href.split(".org", 2)[0];
+      if(hostUrl.split(".").length == 2){
+      	 location.href = "https://pdf4teachers.org" + location.href.split(".org", 2)[1];
+      
+      }else{
+      	
+      	  $.ajax({
           url : document.location.href + "/index.php",
           type : 'POST',
           dataType : 'html',
@@ -339,9 +345,13 @@ var readyFunction = function(){
                 loadDownloadPage(global.lastReleaseTag, (getData(data, "v") === "" ? global.lastReleaseTag : getData(data, "v")), global.tags);
               })
             }
-
           }
         });
+        
+        
+      }
+   
+   
     });
 }
 $(document).ready(readyFunction);
