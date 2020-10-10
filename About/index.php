@@ -25,33 +25,35 @@
 </head>
 
 <body>
+	<div class="filter"></div>
 
 <!--          HEADER          -->
-<header>
-	<?php include '../header.php'; ?>
-</header>
+	<header>
+		<?php include '../header.php'; ?>
+	</header>
 
 <!--          MAIN          -->
-<main>
-	<div class="info">
-		<h2><?= t("title.features-description") ?></h2><br/>
-		<p><?= t("text.features-description.presentation") ?><br/><br/><?= t("text.features-description.main-feature") ?><br/><br/><?= t("text.features-description.secondary-feature") ?></p>
-		<br><hr><br>
-		<h2><?= t("title.complementary") ?></h2><br/>
-		<p><?= t("text.complementary.disclaimer") ?><br/><br/><?= t("text.complementary.license") ?><br/><br/><?= t("text.complementary.more") ?></p>
-	</div>
-</main>
+	<main>
+
+		<div class="info">
+			<h2><?= t("title.features-description") ?></h2><br/>
+			<p><?= t("text.features-description.presentation") ?><br/><br/><?= t("text.features-description.main-feature") ?><br/><br/><?= t("text.features-description.secondary-feature") ?></p>
+			<br><hr><br>
+			<h2><?= t("title.complementary") ?></h2><br/>
+			<p><?= t("text.complementary.disclaimer") ?><br/><br/><?= t("text.complementary.license") ?><br/><br/><?= t("text.complementary.more") ?></p>
+		</div>
+	</main>
 
 <!--          FOOTER          -->
-<footer>
-	<?php include '../footer.php'; ?>
-</footer>
+	<footer>
+		<?php include '../footer.php'; ?>
+	</footer>
 
-<script type='text/javascript' src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../js/main.js"></script>
+	<script type='text/javascript' src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
 
 </body>
 </html>

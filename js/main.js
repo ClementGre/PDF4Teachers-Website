@@ -98,6 +98,7 @@ function getReleasesTags(lastReleaseTag, callBack){
   });
 }
 async function loadDownloadPage(lastTag, toOpenTag, tags){
+
   for(var i = 0 ; i < tags.length ; i++){
     
     await $.ajax({
@@ -108,17 +109,23 @@ async function loadDownloadPage(lastTag, toOpenTag, tags){
   
       success : function(html, status){
         var tag = tags[i];
+        // Return if the releases pane already exist
+        if($('.release-' + replaceAll(tags[i], '.', '-')).length > 0) return;
+        
         $('main').append(html);
         $('main a.replace-lastrelease').each(function(index){
           var newUrl = replaceAll($(this).attr("href"), '<lastRelease>', tag);
           $(this).attr("href", newUrl);
         });
 
-        $(document).on('touchstart click', '.release-' + replaceAll(tag, '.', '-') + ' i.fas', function(e){
-          if($(this).hasClass('animate')) return;
+        $(document).on('click', '.release-' + replaceAll(tag, '.', '-') + ' div.header', function(e){
+          var icon = $('.release-' + replaceAll(tag, '.', '-') + ' i.fas');
+
+          if(!e.target.className.split(' ').includes("fas") && !e.target.className.split(' ').includes("accept-click")) return;
+          if($(icon).hasClass('animate')) return;
           
-          if($(this).hasClass('fa-chevron-down')){
-            $(this).addClass('animate');
+          if($(icon).hasClass('fa-chevron-down')){
+            $(icon).addClass('animate');
 
             if($('.release-' + replaceAll(tag, '.', '-') + ' .content').length){
               $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideDown(function complete(){
@@ -137,8 +144,8 @@ async function loadDownloadPage(lastTag, toOpenTag, tags){
                 });
               });
             }
-          }else if($(this).hasClass('fa-chevron-up')){
-            $(this).addClass('animate');
+          }else if($(icon).hasClass('fa-chevron-up')){
+            $(icon).addClass('animate');
             $('.release-' + replaceAll(tag, '.', '-') + ' .content').slideUp(function complete(){
               $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').removeClass('animate');
               $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').removeClass('fa-chevron-up');
@@ -339,7 +346,7 @@ var readyFunction = function(){
             // CHANGE LINKS
             updateReleaseLinks(global.lastReleaseTag);
 
-            // DOWNLOAD PAGE
+            // DOWNLOAD PAGE 
             if(pageName === "Download"){
               getReleasesTags(global.lastReleaseTag, function callBack(tags){
                 loadDownloadPage(global.lastReleaseTag, (getData(data, "v") === "" ? global.lastReleaseTag : getData(data, "v")), global.tags);

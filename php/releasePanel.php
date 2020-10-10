@@ -5,10 +5,10 @@ $assignedButton = true;
 include 'translator.php';
 ?>
 <div class="info release-<?= str_replace('.', '-', $tag) ?> <?php if(strpos($tag, 'pre') !== false){ echo 'pre-release'; }?>">
-    <div class="header">
-        <div>
+    <div class="header accept-click">
+        <div class="accept-click">
             <i class="fas fa-chevron-down"></i>
-            <h2><?php
+            <h2 class="accept-click"><?php
 
                 if(strpos($tag, 'pre') !== false){
                     if(strpos($tag, '-pre') !== false){

@@ -1,4 +1,4 @@
-<?php $acc=false; $page="404"; require "../php/translator.php"; ?>
+<?php $acc=false; $page="403"; require "../php/translator.php"; ?>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,7 @@
 <!--          MAIN          -->
 	<main>
 		<center style="padding: 200px 10px;">
-			<h1 style="font-size: 32px;"><?= t("message.404error") ?></h1>
+			<h1 style="font-size: 32px;"><?= t("message.error") ?></h1>
 		</center>
 	</main>
 
