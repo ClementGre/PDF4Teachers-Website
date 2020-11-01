@@ -8,7 +8,7 @@
 
 	<meta name="description" content="<?= t("page.description") ?>" />
 	<meta name="keywords" content="<?= t("page.keywords") ?>" />
-	<link rel="icon" href="../data/img/logo.png" />
+	<link rel="icon" href="../data/small-img/logo.png" />
 	<title><?= t("page.name") ?></title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -34,8 +34,8 @@
 <!--          MAIN          -->
 	<main>
 		<div class="info liscence">
-			<img class="full" src="../data/img/liscence.png"/>
-			<img class="full" src="../data/img/liscence2.png"/>
+			<img class="full" src="../data/small-img/liscence.png"/>
+			<img class="full" src="../data/small-img/liscence2.png"/>
 
 			<center>
 				<h2>Apache License</h2>

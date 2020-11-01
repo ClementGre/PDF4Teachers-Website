@@ -1,8 +1,8 @@
 <div>
   <?php if($acc){ ?>
-    <a href=""><img src="data/img/logo.png" /></a>
+    <a href=""><img src="data/small-img/logo.png" /></a>
   <?php }else{ ?>
-    <a href="../"><img src="../data/img/logo.png" /></a>
+    <a href="../"><img src="../data/small-img/logo.png" /></a>
   <?php } ?>
 </div>
 
@@ -20,9 +20,9 @@
 
 <div class="right menu-div">
     <?php if($acc){ ?>
-      <a class="menu-link" href=""><img src="data/img/menu.png" /></a>
+      <a class="menu-link" href=""><img src="data/small-img/menu.png" /></a>
     <?php }else{ ?>
-      <a class="menu-link" href=""><img src="../data/img/menu.png" /></a>
+      <a class="menu-link" href=""><img src="../data/small-img/menu.png" /></a>
     <?php } ?>
 </div>
 

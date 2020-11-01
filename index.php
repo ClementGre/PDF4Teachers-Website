@@ -1,14 +1,12 @@
 <?php $acc=true; $page="Home"; require "php/translator.php"; ?>
 
-<!DOCTYPE html>
-<html>
 <!--          PAGE INFO          -->
 <head>
 	<?php require 'analytics.php'; ?>
 
 	<meta name="description" content="<?= t("page.description") ?>" />
 	<meta name="keywords" content="<?= t("page.keywords") ?>" />
-	<link rel="icon" href="data/img/logo.png" />
+	<link rel="icon" href="data/small-img/logo.png" />
 	<title><?= t("page.name") ?></title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -23,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="css/foot.css" />
 	<link rel="stylesheet" type="text/css" href="css/home.css" />
 
+
 </head>
 <body>
 	<div class="filter"></div>
@@ -31,12 +30,11 @@
 		<?php include 'header.php'; ?>
 	</header>
 
-
 <!--          MAIN          -->
 	<main>
 
 		<center class="title">
-			<img src="data/img/title.png"/>
+			<img src="data/small-img/title.png"/>
 			<br/>
 			<div class="text">
 				<h1><?= t("message.teaser") ?></h1>
@@ -46,7 +44,7 @@
 		<div class="features">
 			<div class="feature-block from-left">
 				<div class="left image-div">
-					<img src="data/img/convert.png"/>
+					<img src="data/small-img/convert.png"/>
 				</div>
 				<div class="right text">
 					<h2><?= t("title.convert") ?></h2>
@@ -59,12 +57,12 @@
 					<p><?= t("text.edit") ?></p>
 				</div>
 				<div class="right image-div">
-					<img src="data/img/edit.png"/>
+					<img src="data/small-img/edit.png"/>
 				</div>
 			</div>
 			<div class="feature-block from-left">
 				<div class="left image-div">
-					<img src="data/img/export.png"/>
+					<img src="data/small-img/export.png"/>
 				</div>
 				<div class="right text">
 					<h2><?= t("title.export") ?></h2>
