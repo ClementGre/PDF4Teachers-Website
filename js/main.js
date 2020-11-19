@@ -228,13 +228,13 @@ function getDownloadPageContents(tag, callBack){
         var date = json.published_at.split('T')[0].replace('-', ' ').replace('-', '/');
       }
 
-      var downloads = '<div class="downloads"><div class="title">';
+      var downloads = '';
       var downloadCount = 0;
       for(var asset of json.assets){
         downloads += '<div class="asset"><a href="' + asset.browser_download_url + '">' + asset.name + '</a><p>' + asset.download_count + ' ' + getHtmlVar("tr-downloads") + ' - ' + Math.floor(asset.size/1000000) + ' ' + getHtmlVar("tr-mb") + '</p></div>';
         downloadCount += asset.download_count;
       }
-      downloads = '<h2>' + getHtmlVar("tr-files") + '</h2><p>' + downloadCount + ' ' + getHtmlVar("tr-downloads") + '</p><p class="date">' + date + '</p></div><br/>' + downloads;
+      downloads = '<div class="downloads"><div class="title"><h2>' + getHtmlVar("tr-files") + '</h2><p>' + downloadCount + ' ' + getHtmlVar("tr-downloads") + '</p><p class="date">' + date + '</p></div><br/>' + downloads;
       
       downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.zip">' + getHtmlVar("tr-source-code") + ' (zip)</a></div>';
       downloads += '<div class="asset"><a href="https://github.com/ClementGre/PDF4Teachers/archive/' + tag + '.tar.gz">' + getHtmlVar("tr-source-code") + ' (tar.gz)</a></div>';
