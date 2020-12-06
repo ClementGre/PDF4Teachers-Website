@@ -6,7 +6,7 @@
 		if(!$dirinfo->isDot()){
 
 			$dirNameInfo = explode(';', $dirinfo->getFilename());
-			$dirData = ['release' => $dirNameInfo[1], 'version' => intval($dirNameInfo[2]), 'files' => []];
+			$dirData = ['release' => $dirNameInfo[1], 'version' => intval($dirNameInfo[2]), 'name' => intval($dirNameInfo[3]), 'files' => []];
 
 			foreach(new DirectoryIterator('data/' . $dirinfo->getFilename()) as $fileinfo) {
 				if(!$fileinfo->isDot()){
