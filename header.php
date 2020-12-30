@@ -10,9 +10,25 @@
   <nav class="global-nav">
     <ul>
       <?php if($acc){ ?>
-        <li class="list active"><a href=""><?= t("button.home") ?></a></li><li class="list"><a href="Download/"><?= t("button.download") ?></a></li><li class="list"><a href="About/"><?= t("button.about") ?></a></li>
+        <li class="list active">
+          <a href=""><?= t("button.home") ?></a>
+        </li><li class="list">
+          <a href="Download/"><?= t("button.download") ?></a>
+        </li><li class="list">
+          <a href="About/"><?= t("button.about") ?></a>
+        </li><!-- <li class="list">
+          <a href="Contribute/"><?= t("button.contribute") ?></a>
+        </li> -->
       <?php }else{ ?>
-        <li class="list"><a href="../"><?= t("button.home") ?></a></li><li class="list <?php if($page === "Download"){echo "active";}?>"><a href="../Download/"><?= t("button.download") ?></a></li><li class="list <?php if($page === "About"){echo "active";}?>"><a href="../About/"><?= t("button.about") ?></a></li>
+        <li class="list">
+          <a href="../"><?= t("button.home") ?></a>
+        </li><li class="list <?php if($page === "Download"){echo "active";}?>">
+          <a href="../Download/"><?= t("button.download") ?></a>
+        </li><li class="list <?php if($page === "About"){echo "active";}?>">
+          <a href="../About/"><?= t("button.about") ?></a>
+        </li><!-- <li class="list <?= ($page === "Contribute") ? "active" : "" ?>">
+          <a href="../Contribute/"><?= t("button.contribute") ?></a>
+        </li> -->
       <?php } ?>
     </ul>
   </nav>

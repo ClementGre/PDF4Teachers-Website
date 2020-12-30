@@ -129,7 +129,7 @@ header .filter{
   display: none;
 }
 
-@media(max-width: 1000px){
+@media(max-width: 1079px){
 	header .download-div{
 		display: none;
 	}
