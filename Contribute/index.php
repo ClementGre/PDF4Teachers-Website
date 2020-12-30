@@ -50,8 +50,7 @@
 			<p>
                 <?= t("text.translate-site.preambule") ?><br/><br/>
                 <?= t("text.translate-site.files") ?><br/><br/>
-                <?= t("text.translate-site.test") ?><br/><br/>
-                <?= t("text.translate-site.deploy") ?>
+                <?= t("text.translate-site.test") ?>
             </p>
 		</div>
 	</main>
