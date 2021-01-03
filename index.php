@@ -42,7 +42,10 @@
 		</center>
 
 		<div class="features">
-			<div class="feature-block from-left">
+			<div class="feature-block feature-block-1 from-left">
+				<!-- <img class="shoot-box shoot-box-left"/>
+				<img class="shoot-box shoot-box-right"/> -->
+
 				<div class="left image-div">
 					<img src="data/small-img/convert.png"/>
 				</div>
@@ -51,7 +54,10 @@
 					<p><?= t("text.convert") ?></p>
 				</div>
 			</div>
-			<div class="feature-block from-right">
+			<div class="feature-block feature-block-2 from-right">
+				<!-- <img class="shoot-box shoot-box-left"/>
+				<img class="shoot-box shoot-box-right"/> -->
+
 				<div class="left text">
 					<h2><?= t("title.edit") ?></h2>
 					<p><?= t("text.edit") ?></p>
@@ -60,7 +66,10 @@
 					<img src="data/small-img/edit.png"/>
 				</div>
 			</div>
-			<div class="feature-block from-left">
+			<div class="feature-block feature-block-3 from-left">
+				<!-- <img class="shoot-box shoot-box-left"/>
+				<img class="shoot-box shoot-box-right"/> -->
+
 				<div class="left image-div">
 					<img src="data/small-img/export.png"/>
 				</div>
@@ -69,6 +78,8 @@
 					<p><?= t("text.export") ?></p>
 				</div>
 			</div>
+		</div><div class="preview-block">
+			<img class="preview" src="data/img/shots/preview.png">
 		</div>
 
 	</main>
@@ -84,6 +95,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/home.js"></script>
 
 </body>
 </html>

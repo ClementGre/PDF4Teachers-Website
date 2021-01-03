@@ -1,3 +1,15 @@
+main .features .feature-block > .right{
+  z-index: 5;
+}
+main .features .feature-block > .left{
+  z-index: 5;
+}
+
+header, main, footer{
+  width: 100%;
+  overflow: hidden;
+}
+
 /*----- TITLE -----*/
 main > center.title{
   background: linear-gradient(135deg, #efad9e, #ddc2db);
@@ -34,29 +46,23 @@ main > center.title h1{
 
 /*----- FEATURE-BLOCK -----*/
 main .features{
-  padding: 30px 0;
+  padding: 40px 0;
+  margin: auto;
 }
 main .feature-block{
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  width: 100%;
 }
 main .feature-block > div{
   display: inline-block;
   vertical-align: middle;
-  margin: 20px;
+  margin: 10px 20px;
   animation-duration: .5s;
 }
 main .feature-block > .right{
-  margin: 20px 40px 20px 0px;
-}
-@media(max-width: 900px){
-  main .feature-block > div{
-    margin: 20px;
-  }
-  main .feature-block > .right{
-    margin: 20px 20px 20px 0px;
-  }
+  margin: 10px 20px 10px 0px;
 }
 @media(max-width: 700px){
   main .feature-block > div{
@@ -96,3 +102,70 @@ main .feature-block h2{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/*----- PREVIEW -----*/
+.preview-block{
+  padding: 50px 0 50px 0;
+  margin-left: auto;
+  width: 40%;
+  max-width: 840px;
+  display: block;
+  float: right;
+}
+.preview-block img.preview{
+  transform: skewY(-5deg);
+  position: relative;
+  right: 0;
+  margin-left: 20px;
+}
+
+/*----- BLOCKS DIMENSIONS -----*/
+
+.features{
+  width: 60%;
+}
+.features, .preview-block{
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media(max-width: 1060px){
+  main .feature-block{
+    justify-content: center;
+  }
+  .features, .preview-block{
+    width: 100%;
+  }
+  .preview-block img.preview{
+    position: relative;
+  }
+}
+
+/*----- SHOOTS-BOX -----*/
+
+/* main .shoot-box{
+  display: none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  z-index: 3;
+}
+main .shoot-box-left{
+  left: 0;
+  transform: translateY(-50%);
+}
+main .shoot-box-right{
+  right: 0;
+  transform: translateY(-50%);
+}
+@media(max-width: 900px){
+  main .shoot-box{
+    margin: 0px;
+  }
+}
+@media(max-width: 700px){
+  main .shoot-box{
+    margin: 0px;
+  }
+} */
