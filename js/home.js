@@ -17,6 +17,26 @@ $(document).ready(() => {
     // $('.feature-block-3').mouseleave(() => {
     //     hide(3);
     // });
+
+
+    status = 1;
+    setInterval(() => {
+        $('.preview-block img').addClass("hided");
+        setTimeout(() => {
+            if(status == 1){
+                $('.preview-block img').attr("src", "data/img/shots/preview-grades.png")
+                console.log("grades")
+            }else{
+                $('.preview-block img').attr("src", "data/img/shots/preview.png")
+                status = 0;
+            }
+            status++;
+            $('.preview-block img').removeClass("hided");
+        }, 300);
+        
+        
+    }, 1000*10);
+
 });
 window.onload = () => {
     // $('.feature-block-1 .shoot-box-left').attr("src", "data/img/shots/convert-old.png")

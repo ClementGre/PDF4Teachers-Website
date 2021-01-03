@@ -105,7 +105,7 @@ main .feature-block h2{
 
 /*----- PREVIEW -----*/
 .preview-block{
-  padding: 50px 0 50px 0;
+  padding: 40px 0;
   margin-left: auto;
   width: 40%;
   max-width: 840px;
@@ -113,10 +113,24 @@ main .feature-block h2{
   float: right;
 }
 .preview-block img.preview{
-  transform: skewY(-5deg);
+  transform: skewY(-3deg);
   position: relative;
   right: 0;
   margin-left: 20px;
+  /* border: 3px solid #5bb1ff; */
+  animation: .5s show;
+  box-shadow: -1px 1px 5px black;
+}
+.preview-block img.preview.hided{
+  animation: .5s hide;
+}
+@keyframes hide{
+  0%{ transform: translateX(0%) skewY(-3deg) }
+  100%{ transform: translateX(100%) skewY(-3deg) }
+}
+@keyframes show{
+  0%{ transform: translateX(100%) skewY(-3deg) }
+  100%{ transform: translateX(0%) skewY(-3deg) }
 }
 
 /*----- BLOCKS DIMENSIONS -----*/
