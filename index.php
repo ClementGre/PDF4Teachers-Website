@@ -79,7 +79,7 @@
 				</div>
 			</div>
 		</div><div class="preview-block">
-			<img class="preview" src="data/img/shots/preview.png">
+			<img class="preview" src="data/small-img/shots/text-elements.png">
 		</div>
 
 	</main>

@@ -24,10 +24,9 @@ $(document).ready(() => {
         $('.preview-block img').addClass("hided");
         setTimeout(() => {
             if(status == 1){
-                $('.preview-block img').attr("src", "data/img/shots/preview-grades.png")
-                console.log("grades")
+                $('.preview-block img').attr("src", "data/small-img/shots/grading.png")
             }else{
-                $('.preview-block img').attr("src", "data/img/shots/preview.png")
+                $('.preview-block img').attr("src", "data/small-img/shots/text-elements.png")
                 status = 0;
             }
             status++;
