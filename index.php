@@ -82,6 +82,15 @@
 			<img class="preview" src="data/small-img/shots/text-elements.png">
 		</div>
 
+		<center>
+			<div class="youtube-div">
+				<div class="youtube-container">
+					<iframe class="youtube-iframe" src="https://www.youtube-nocookie.com/embed/zqEOGA7G5bE" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</center>
+
 	</main>
 
 
