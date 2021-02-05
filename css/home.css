@@ -7,6 +7,8 @@ main .features .feature-block > .left{
 
 header, main, footer{
   width: 100%;
+}
+main, footer{
   overflow: hidden;
 }
 
