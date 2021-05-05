@@ -31,7 +31,7 @@ if(gettype($oss) === "array"){
     <div class="dropdown-menu">
 
       <?php
-      for($i = 1; $i <= 4; $i++){
+      for($i = 0; $i <= 4; $i++){
         $fileName;
         switch($oss[$i]){
           case "windows":
