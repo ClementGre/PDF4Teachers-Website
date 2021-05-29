@@ -1,5 +1,7 @@
 <?php $acc=true; $page="Home"; require "php/translator.php"; ?>
 
+<!doctype html>
+<html lang="<?= $language ?>"">
 <!--          PAGE INFO          -->
 <head>
 	<?php require 'analytics.php'; ?>
