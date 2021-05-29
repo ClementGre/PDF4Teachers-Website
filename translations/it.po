@@ -1,0 +1,10 @@
+page.name=PDF4Teachers | Home
+page.description=Software di editing PDF in grandi quantità. Progettata per gli insegnanti, questa app mantiene le annotazioni precedenti registrate e offre funzionalità come la scala di valutazione, la conversione in PDF.
+page.keywords=pdf, valutazione, scala, voti, conversione, modifica, salvataggio, insegnante, documento, correzione, nota, home, principale
+message.teaser=Riscopri l'annotazione e classificazione delle valutazioni
+title.convert=Convertire
+text.convert=PDF4Teachers può eseguire la conversione batch di immagini in documenti PDF. Inserisci pagine vuote, ruota e sposta le pagine del documento secondo necessità.
+title.edit=Modificare
+text.edit=Non riscrivere la stessa annotazione più di una volta, grazie alle funzioni cronologia e preferiti. Migliora la tua produttività nella valutazione, con l'inserimento numerico della valutazione e le funzionalità della scala di valutazione.
+title.export=Esportare
+text.export=Una volta terminato il lavoro, rigenera nuovi file PDF di valutazioni annotate ed esporta con un clic tutti i voti degli studenti in un foglio di calcolo.
