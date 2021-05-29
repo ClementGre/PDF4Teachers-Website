@@ -1,7 +1,7 @@
 <?php $acc=false; $page="500"; require "../php/translator.php"; ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="<?= $language ?>">
 <!--          PAGE INFO          -->
 <head>
 	<?php require '../analytics.php'; ?>

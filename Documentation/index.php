@@ -1,7 +1,7 @@
 <?php $acc=false; $page="Documentation"; require "../php/translator.php"; ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="<?= $language ?>">
 <!--          PAGE INFO          -->
 <head>
 	<?php require '../analytics.php'; ?>
@@ -33,7 +33,14 @@
 
 <!--          MAIN          -->
 	<main>
-		<iframe src="../data/documentation/<?= $language ?>.pdf" style="width: 100%;  height: 80vh; border: none; margin: -1px 0 -8px 0;"></iframe>
+        <?php
+            if(file_exists("../data/documentation/" . $language . ".pdf")){
+                echo '<iframe src="../data/documentation/' . $language . '.pdf" style="width: 100%;  height: 80vh; border: none; margin: -1px 0 -8px 0;"></iframe>';
+            }else{
+                echo '<iframe src="../data/documentation/en.pdf" style="width: 100%;  height: 80vh; border: none; margin: -1px 0 -8px 0;"></iframe>';
+            }
+        ?>
+
 	</main>
 
 <!--          FOOTER          -->
