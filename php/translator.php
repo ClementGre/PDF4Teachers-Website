@@ -19,7 +19,7 @@ if(isset($_POST['language'])){
 		}
 		return $default;
 	}
-	$languages = ['fr', 'en'];
+	$languages = ['fr', 'en', 'it'];
 
 	// Detect language with url, cookie 🍪 or navigator language
 	$urlLang = explode(".", $_SERVER["SERVER_NAME"])[0];

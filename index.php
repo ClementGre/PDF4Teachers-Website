@@ -47,7 +47,7 @@
 				<img class="shoot-box shoot-box-right"/> -->
 
 				<div class="left image-div">
-					<img src="data/small-img/convert.png"/>
+					<img src="data/small-img/convert.png" alt="Convert"/>
 				</div>
 				<div class="right text">
 					<h2><?= t("title.convert") ?></h2>
@@ -63,7 +63,7 @@
 					<p><?= t("text.edit") ?></p>
 				</div>
 				<div class="right image-div">
-					<img src="data/small-img/edit.png"/>
+					<img src="data/small-img/edit.png" alt="Edit"/>
 				</div>
 			</div>
 			<div class="feature-block feature-block-3 from-left">
@@ -71,7 +71,7 @@
 				<img class="shoot-box shoot-box-right"/> -->
 
 				<div class="left image-div">
-					<img src="data/small-img/export.png"/>
+					<img src="data/small-img/export.png" alt="Export"/>
 				</div>
 				<div class="right text">
 					<h2><?= t("title.export") ?></h2>
