@@ -39,11 +39,20 @@
 			<h2><?= t("title.translate-app") ?></h2><br/>
 			<p>
                 <?= t("text.translate-app.preambule") ?><br/><br/>
-                <?= t("text.translate-app.files") ?><br/><br/>
-                <?= t("text.translate-app.specificities") ?><br/><br/>
+
+                <?= t("text.translate-app.files") ?>
+            </p>
+            <ul>
+                <li><p><?= t("text.translate-app.files.properties") ?></p></li>
+                <li><p><?= t("text.translate-app.files.png") ?></p></li>
+                <li><p><?= t("text.translate-app.files.odt") ?></p></li>
+                <li><p><?= t("text.translate-app.files.pdf") ?></p></li>
+            </ul>
+            <p>
+                <br/><br/>
                 <?= t("text.translate-app.deploy") ?>
             </p>
-			
+
             <br><hr><br>
 			
             <h2><?= t("title.translate-site") ?></h2><br/>

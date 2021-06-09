@@ -33,7 +33,7 @@ if(isset($_POST['language'])){
 			$language = getBrowserLanguage($languages);
 		}
 	}else{
-			$language = getBrowserLanguage($languages);
+		$language = getBrowserLanguage($languages);
 	}
 	// Load translation file
 	$translations = array();
