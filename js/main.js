@@ -45,21 +45,21 @@ function getCookie(cname){
 ///////////////////////// RELEASES REQUEST /////////////////////////
 ////////////////////////////////////////////////////////////////////
 function getLastReleaseTag(callBack){
-    var lastRelease = getCookie("lastRelease");
-    if(lastRelease == ""){
+    const lastRelease = getCookie("lastRelease");
+    if(lastRelease === ""){
         console.log("Using GitHub request to define last release tag");
         $.ajax({
             url: "https://api.github.com/repos/clementgre/PDF4Teachers/releases/latest",
             dataType: 'json',
 
-            success: function(json, status){
-                var d = new Date();
+            success: function(json){
+                const d = new Date();
                 d.setTime(d.getTime() + (10 * 60 * 1000)); // Cookie expire in 10 Minutes
                 document.cookie = "lastRelease=" + json.tag_name + "; expires=" + d.toUTCString() + "; sameSite=Strict; path=/";
                 callBack(json.tag_name);
             }
         }).fail(function fail(){
-            callBack("");
+            callBack("1.2.1");
         });
     }else{
         console.log("Using cookie to define last release tag");
@@ -68,7 +68,7 @@ function getLastReleaseTag(callBack){
 }
 
 function updateReleaseLinks(lastTag){
-    $('a.replace-lastrelease').each(function(index){
+    $('a.replace-lastrelease').each(function(){
         var newUrl = replaceAll($(this).attr("href"), '<lastRelease>', lastTag);
         $(this).attr("href", newUrl);
     });
@@ -76,7 +76,7 @@ function updateReleaseLinks(lastTag){
 
 function getReleasesTags(lastReleaseTag, callBack){
     var releasesTags = getCookie("releasesTags");
-    if(releasesTags != ""){
+    if(releasesTags !== ""){
         if(releasesTags.split(",")[0] === lastReleaseTag || releasesTags.split(",")[1] === lastReleaseTag || releasesTags.split(",")[2] === lastReleaseTag){
             console.log("Using cookie to define releases tags");
             callBack(releasesTags.split(","));
@@ -106,7 +106,7 @@ function getReleasesTags(lastReleaseTag, callBack){
 }
 
 function replaceAll(text, pattern, replacement){
-    var newText = text.replace(pattern, replacement);
+    const newText = text.replace(pattern, replacement);
     if(newText !== text){
         return replaceAll(newText, pattern, replacement);
     }

@@ -1,13 +1,81 @@
 class ReleaseSection extends HTMLDivElement {
+
     constructor(){
         super();
-
     }
     connectedCallback(){
-        console.log("connected")
+        this.className.split(" ").every((clazz) => {
+            if(clazz.startsWith("release-")){
+                this.setup(clazz);
+                return false;
+            }
+            return true;
+        })
+
+        console.log(this.querySelector('div.header'))
+        this.addEventListener('click', this.onHeaderClick)
     }
     disconnectedCallback(){
+        this.removeEventListener('click', this.onHeaderClick)
+    }
 
+    setup(clazz){
+        this.selector = "." + clazz;
+        this.tag = replaceAll(clazz.replace("release-", ""), "-", ".");
+    }
+
+    onHeaderClick(e){
+        console.log('toggeling ' + this.tag)
+
+        // Accept click only on .fas and .accept-click elements
+        if(!e.target.className.split(' ').includes("fas")
+            && !e.target.className.split(' ').includes("accept-click")) return;
+
+        // If the release section is currently opening / closing
+        if(this.classList.contains('animate')) return;
+
+        if(this.isOpen()) this.close()
+        else this.open()
+    }
+
+    isOpen(){
+        return this.getIcon().classList.contains('fa-chevron-up');
+    }
+
+    open(){
+        this.classList.add('animate');
+
+        if($(this.selector + ' .content').length){ // Simply open
+            this.openNow();
+
+        }else{ // Load content from GitHub
+            getDownloadPageContents(this.tag, (html) => {
+                this.innerHTML += html;
+                $(this.selector + ' .content').fadeOut(0);
+                this.openNow()
+            });
+        }
+    }
+    openNow(){
+        $(this.selector + ' .content').slideDown(() => {
+            this.classList.remove('animate');
+
+            this.getIcon().classList.remove('fa-chevron-down');
+            this.getIcon().classList.add('fa-chevron-up');
+        });
+    }
+    close(){
+        this.classList.add('animate');
+        $(this.selector + ' .content').slideUp(() => {
+            this.classList.remove('animate');
+
+            this.getIcon().classList.remove('fa-chevron-up');
+            this.getIcon().classList.add('fa-chevron-down');
+        });
+    }
+
+    getIcon(){
+        return this.querySelector('i.fas');
     }
 }
 
@@ -39,23 +107,9 @@ async function loadDownloadPage(lastTag, toOpenTag, tags){
                     $(this).attr("href", newUrl);
                 });
 
-                $(document).on('click', getTagSelector(tag) + ' div.header', function(e){
-                    const selector = getTagSelector(tag);
-                    const icon = $(selector + ' i.fas');
-
-                    if(!e.target.className.split(' ').includes("fas") && !e.target.className.split(' ').includes("accept-click")) return;
-                    if($(icon).hasClass('animate')) return;
-
-                    if($(icon).hasClass('fa-chevron-down')){
-                        openReleaseSection()
-                    }else if($(icon).hasClass('fa-chevron-up')){
-                        closeReleaseSection(selector)
-                    }
-                });
-
                 if(tag === toOpenTag){
                     $(getTagSelector(tag) + ' i.fas').trigger("click");
-                    //$('html').scrollTop($(getTagSelector(tag)).offset().top - 200);
+                    $('html').scrollTop($(getTagSelector(tag)).offset().top - 200);
                 }
 
             }
@@ -63,41 +117,6 @@ async function loadDownloadPage(lastTag, toOpenTag, tags){
     }
 
 
-}
-
-function openReleaseSection(tag){
-    const selector = getTagSelector(tag);
-    const section = $(selector);
-
-    $(selector + ' i.fas').addClass('animate');
-
-    if($(selector + ' .content').length){ // Simply open
-        openDirectlyReleaseSection(selector, section);
-
-    }else{ // Load content from GitHub
-        getDownloadPageContents(tag, function callBack(html){
-            section.append(html);
-            $(getTagSelector(tag) + ' .content').fadeOut(0);
-            $(getTagSelector(tag) + ' .content').slideDown(function complete(){
-                openDirectlyReleaseSection(selector, section);
-            });
-        });
-    }
-}
-function openDirectlyReleaseSection(selector, section){
-    $(selector + ' .content').slideDown(function complete(){
-        $(selector + ' i.fas').removeClass('animate');
-        section.removeClass('fa-chevron-down');
-        section.addClass('fa-chevron-up');
-    });
-}
-function closeReleaseSection(selector){
-    $(selector + ' i.fas').addClass('animate');
-    $(getTagSelector(tag) + ' .content').slideUp(function complete(){
-        $(getTagSelector(tag) + ' i.fas').removeClass('animate');
-        $(getTagSelector(tag) + ' i.fas').removeClass('fa-chevron-up');
-        $(getTagSelector(tag) + ' i.fas').addClass('fa-chevron-down');
-    });
 }
 
 
@@ -173,6 +192,6 @@ function getDownloadPageContents(tag, callBack){
             callBack('<div class="content">' + description + downloads + '</div>');
         }
     }).fail(function fail(){
-        callBack("");
+        callBack('<div class="content"><p>Unable to get release description</p></div>');
     });
 }

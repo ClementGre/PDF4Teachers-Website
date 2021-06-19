@@ -4,7 +4,7 @@
 <html lang="<?= $language ?>">
 <!--          PAGE INFO          -->
 <head>
-	<?php require '../analytics.php'; phpinfo(); ?>
+	<?php require '../analytics.php'; ?>
 
 	<meta name="description" content="<?= t("page.description") ?>" />
 	<meta name="keywords" content="<?= t("page.keywords") ?>" />
