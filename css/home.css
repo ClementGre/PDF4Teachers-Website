@@ -82,11 +82,11 @@ main div.feature-block.from-right > div{
 }
 main .feature-block .image-div{
   border-radius: 50px;
-  width: 200px;
+  width: 180px;
   min-width: 150px;
   min-height: 150px;
   background: rgba(1, 1, 1, 0.2);
-  padding: 20px;
+  padding: 5px;
 }
 main .feature-block .image-div img{
   width: 100%;

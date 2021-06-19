@@ -153,12 +153,16 @@ async function loadDownloadPage(lastTag, toOpenTag, tags){
             });
           }
         });
+
+        if(tag === toOpenTag){
+          $('.release-' + replaceAll(tag, '.', '-') + ' i.fas').trigger("click");
+          $('html').scrollTop($('.release-' + replaceAll(tag, '.', '-')).offset().top - 200);
+        }
+
       }
     });
   }
-  
-  $('html').scrollTop($('.release-' + replaceAll(toOpenTag, '.', '-')).offset().top - 200);
-  $('.release-' + replaceAll(toOpenTag, '.', '-') + ' i.fas').trigger("click");
+
   
 }
 function replaceAll(text, pattern, replacement){

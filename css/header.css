@@ -1,6 +1,5 @@
 header{
-  /*background-color: #3A3131;*/
-  background: linear-gradient(135deg, #d1005f, #ce2c20);
+  background: linear-gradient(45deg, rgba(236, 36, 127, 0.9), rgba(238, 50, 37, 0.9)), black;
 }
 @keyframes drop-header{
   0%{
@@ -19,6 +18,8 @@ header > div{
 }
 header > div > a > img {
   margin: 5px 10px 5px 15px;
+  -webkit-filter: drop-shadow(1px 1px 2px #222f3e);
+  filter: drop-shadow(1px 1px 2px #222f3e);
 }
 header img{
   height: 60px;
