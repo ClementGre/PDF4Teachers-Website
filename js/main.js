@@ -189,7 +189,7 @@ var readyFunction = function(){
             getReleasesTags(tag, function callBack(tags){
                 global.tags = tags;
                 console.log("detected releases tags = " + tags);
-                loadDownloadPage(tag, (getData(data, "v") === "" ? tag : getData(data, "v")), tags);
+                loadDownloadPage(tags, (getData(data, "v") === "" ? tag : getData(data, "v")));
             })
         }
     });
@@ -213,7 +213,7 @@ var readyFunction = function(){
                 type: 'POST',
                 dataType: 'html',
 
-                success: function(html, status){
+                success: function(html){
                     document.body.innerHTML = html;
                     resizeWindowFunction();
 
@@ -223,7 +223,7 @@ var readyFunction = function(){
                     // DOWNLOAD PAGE
                     if(pageName === "Download"){
                         getReleasesTags(global.lastReleaseTag, function callBack(tags){
-                            loadDownloadPage(global.lastReleaseTag, (getData(data, "v") === "" ? global.lastReleaseTag : getData(data, "v")), global.tags);
+                            loadDownloadPage(global.tags, (getData(data, "v") === "" ? global.lastReleaseTag : getData(data, "v")));
                         })
                     }
                 }
