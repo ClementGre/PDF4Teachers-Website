@@ -2,6 +2,7 @@
 
 if(isset($_POST['language'])){
 	setcookie('language', $_POST['language'], array('samesite' => 'strict', 'path' => '/'));
+
 }else{
 	function getBrowserLanguage( $available = [], $default = 'en' ) {
 		if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])){

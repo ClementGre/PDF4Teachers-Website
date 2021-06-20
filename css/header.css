@@ -1,154 +1,150 @@
-header{
-  background: linear-gradient(45deg, rgba(236, 36, 127, 0.9), rgba(238, 50, 37, 0.9)), black;
-}
-@keyframes drop-header{
-  0%{
-    transform: translateY(-100%) skewX(45deg);
-  }
-  100%{
-    transform: initial;
-  }
+header {
+    background: linear-gradient(45deg, rgba(236, 36, 127, 0.9), rgba(238, 50, 37, 0.9)), black;
 }
 
-header > div{
-  display: inline-block;
-  vertical-align: top;
-  /*animation-name: drop-header;*/
-  animation-duration: .5s;
+@keyframes drop-header {
+    0% {
+        transform: translateY(-100%) skewX(45deg);
+    }
+    100% {
+        transform: initial;
+    }
 }
+
+header > div {
+    display: inline-block;
+    vertical-align: top;
+    /*animation-name: drop-header;*/
+    animation-duration: .5s;
+}
+
 header > div > a > img {
-  margin: 5px 10px 5px 15px;
-  -webkit-filter: drop-shadow(1px 1px 2px #222f3e);
-  filter: drop-shadow(1px 1px 2px #222f3e);
+    margin: 5px 10px 5px 15px;
+    -webkit-filter: drop-shadow(1px 1px 2px #222f3e);
+    filter: drop-shadow(1px 1px 2px #222f3e);
 }
-header img{
-  height: 60px;
-  margin: 5px;
+
+header img {
+    height: 60px;
+    margin: 5px;
 }
 
 /* RIGHT BTNS */
-header > div.right{
-  float: right;
-  margin: 15px 16px 16px 0px;
-}
-header > div.menu-div{
-  margin: 0px;
+header > div.right {
+    float: right;
+    margin: 15px 16px 16px 0px;
 }
 
-.dropdown-div{
-  height: 38px;
-  vertical-align: middle;
-  border-radius: 3px;
-}
-.download-div > .base-button{
-  padding: 0;
-  border: none;
-}
-.download-div > .base-button > a{
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-  color: white;
-  padding: 10px 12px;
-}
-.download-div > .base-button > a:hover, .download-div > .base-button > a:active, .download-div > .base-button > a:focus{
-  text-decoration: none;
-  color: white;
-  outline: none;
-}
-.dropdown-menu{
-  transform: translateX(-50%);
-  min-width: 0;
-  border-radius: 0;
+header > div.menu-div {
+    margin: 0px;
 }
 
-header i{
-  color: black;
-  font-size: 35px;
-  padding-left: 11.75px;
-  vertical-align: middle;
-  transition: all 0.2s ease-in-out;
+.dropdown-div {
+    height: 38px;
+    vertical-align: middle;
+    border-radius: 3px;
 }
-header i:hover{
-  font-size: 39px;
-  margin: -2px;
+
+.download-div > .base-button {
+    padding: 0;
+    border: none;
 }
-header a.language-link{
-  padding: 2px 10px;
+
+.download-div > .base-button > a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    padding: 10px 12px;
 }
-header .menu-link{
-  display: inline-block;
-  padding: 0 5px;
-  margin: 0 11px;
-  font-size: 24px;
-  height: 70px;
-  transition: all 0.2s ease-in-out;
+
+.download-div > .base-button > a:hover, .download-div > .base-button > a:active, .download-div > .base-button > a:focus {
+    text-decoration: none;
+    color: white;
+    outline: none;
 }
-header .menu-link:hover{
-  background-color: rgba(1, 1, 1, 0.1);
+
+.dropdown-menu {
+    transform: translateX(-50%);
+    min-width: 0;
+    border-radius: 0;
+}
+
+header i {
+    color: black;
+    font-size: 35px;
+    padding-left: 11.75px;
+    vertical-align: middle;
+    transition: all 0.2s ease-in-out;
+}
+
+header i:hover {
+    font-size: 39px;
+    margin: -2px;
+}
+
+header a.language-link {
+    padding: 2px 10px;
+}
+
+header .menu-link {
+    display: inline-block;
+    padding: 0 5px;
+    margin: 0 11px;
+    font-size: 24px;
+    height: 70px;
+    transition: all 0.2s ease-in-out;
+}
+
+header .menu-link:hover {
+    background-color: rgba(1, 1, 1, 0.1);
 }
 
 /* NAV */
-header nav{
-  display: inline-block;
-}
-header nav ul{
-  list-style: none;
-  padding: 0;
-  margin: 0;
+header nav {
+    display: inline-block;
 }
 
-header nav ul li{
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  height: 70px;
-}
-header nav ul li.active{
-  background-color: rgba(0, 0, 0, 0.2);
-  text-decoration: underline;
-  color: white;
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-header nav ul li a{
-  display: block;
-  line-height: 70px;
-  padding: 0 16px;
-  color: white;
-  font-family: 'Varela Round', sans-serif;
-	font-size: 23px;
-  transition: all 0.2s ease-in-out;
-}
-header nav ul li a:hover{
-  color: white;
-  background-color: rgba(1, 1, 1, 0.1);
-}
-header .menu-div{
-  display: none;
-}
-header .filter{
-  display: none;
+header nav ul li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    height: 70px;
 }
 
-@media(max-width: 1079px){
-	header .download-div{
-		display: none;
-	}
+header nav ul li.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
+    color: white;
 }
-@media(max-width: 800px){
 
-  header > div.right-and-left{
-    float: none;
-    margin: 16px 0px 16px 0px;
-  }
-  body.bodyfix{
-    overflow: hidden;
-  }
-  header .menu-div{
+header nav ul li a {
     display: block;
-  }
-  div.filter{
-    display: block;
+    line-height: 70px;
+    padding: 0 16px;
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 23px;
+    transition: all 0.2s ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: white;
+    background-color: rgba(1, 1, 1, 0.1);
+}
+
+header .menu-div {
+    display: none;
+}
+
+div.filter {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -158,30 +154,55 @@ header .filter{
     z-index: 2;
     will-change: opacity;
     cursor: pointer;
-  }
+}
 
-	header nav{
-		z-index: 998;
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		height: 100%;
-		margin: 0;
-		background-color: rgb(235, 235, 235);
-    overflow-y: auto;
-    display: none;
-	}
-  header nav ul li{
-		display: block;
-	}
-  header nav ul li:hover{
-    background-color: rgba(1, 1, 1, 0.1);
-	}
-  header nav ul li a{
-		color: black;
-    padding: 0 50px 0 30px;
-	}
-  header nav ul li a:hover{
-    color: black;
-  }
+body.bodyfix {
+    overflow: hidden;
+}
+
+@media (max-width: 1079px) {
+    header .download-div {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+
+    header > div.right-and-left {
+        float: none;
+        margin: 16px 0px 16px 0px;
+    }
+
+    header .menu-div {
+        display: block;
+    }
+
+    header nav {
+        z-index: 998;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        margin: 0;
+        background-color: rgb(235, 235, 235);
+        overflow-y: auto;
+        display: none;
+    }
+
+    header nav ul li {
+        display: block;
+    }
+
+    header nav ul li:hover {
+        background-color: rgba(1, 1, 1, 0.1);
+    }
+
+    header nav ul li a {
+        color: black;
+        padding: 0 50px 0 30px;
+    }
+
+    header nav ul li a:hover {
+        color: black;
+    }
 }

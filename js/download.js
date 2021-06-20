@@ -12,7 +12,6 @@ class ReleaseSection extends HTMLDivElement {
             return true;
         })
 
-        console.log(this.querySelector('div.header'))
         this.addEventListener('click', this.onHeaderClick)
     }
     disconnectedCallback(){
@@ -25,7 +24,6 @@ class ReleaseSection extends HTMLDivElement {
     }
 
     onHeaderClick(e){
-        console.log('toggeling ' + this.tag)
 
         // Accept click only on .fas and .accept-click elements
         if(!e.target.className.split(' ').includes("fas")

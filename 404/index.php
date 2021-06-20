@@ -4,9 +4,9 @@
 <html lang="<?= $language ?>">
 <!--          PAGE INFO          -->
 <head>
-	<?php require '../analytics.php'; ?>
+	<?php require '/analytics.php'; ?>
 
-	<link rel="icon" href="../data/small-img/logo.png" />
+	<link rel="icon" href="/data/small-img/logo.png" />
 	<title><?= t("page.name") ?></title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -25,7 +25,7 @@
 	<div class="filter"></div>
 <!--          HEADER          -->
 	<header>
-		<?php include '../header.php'; ?>
+		<?php include '/header.php'; ?>
 	</header>
 
 
@@ -38,7 +38,7 @@
 
 <!--          FOOTER          -->
 	<footer>
-		<?php include '../footer.php'; ?>
+		<?php include '/footer.php'; ?>
 	</footer>
 
 	<script type='text/javascript' src="//code.jquery.com/jquery-1.10.2.min.js"></script>

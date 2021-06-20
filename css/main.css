@@ -100,3 +100,27 @@ main img.full{
   0%{ transform: translateX(-100%) }
   100%{ transform: initial; }
 }
+
+
+/*----- POPUP -----*/
+
+.filter .popup{
+  background-color: aliceblue;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 700px;
+  margin: 20px;
+  vert-align: middle;
+  position: absolute;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+}
+
+@media(max-width: 710px){
+  .filter .popup{
+    padding: 10px;
+  }
+  .filter .popup{
+    margin: 5px;
+  }
+}

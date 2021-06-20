@@ -2,22 +2,16 @@ const global = {};
 
 const resizeWindowFunction = function(){
     const nav = $('nav');
+    const globalNav = $('.global-nav');
 
     if(document.body.clientWidth > 800){
-        const globalNav = $('.global-nav');
-        if(globalNav.hasClass('nav-hide')){ // Back to the inline view
-            $(".global-nav").animate({left: 0}, 0);
-            $('.filter').fadeOut(0); // hide filter
-            globalNav.addClass('nav-hide'); // Add hide nav info
-            $('body').removeClass('bodyfix'); // Enable scroll on body
-        }
+        hideSideMenu();
+        globalNav.animate({left: 400}, 0);
         nav.removeClass('hamburger'); // Remove condensed nav info
     }else{
         if(!nav.hasClass('hamburger')){ // Back to the Hamburger view
-            $(".global-nav").animate({left: -400}, 0);
-            $('.filter').fadeOut(0); // hide filter
-            $('.global-nav').addClass('nav-hide'); // Add hide nav info
-            $('body').removeClass('bodyfix'); // Enable scroll on body
+            globalNav.animate({left: -400}, 0);
+            globalNav.addClass('nav-hide'); // Add hide nav info
             nav.addClass('hamburger'); // Add condensed nav info
         }
     }
@@ -26,15 +20,15 @@ const resizeWindowFunction = function(){
 resizeWindowFunction();
 
 function getCookie(cname){
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++){
-        var c = ca[i];
-        while(c.charAt(0) == ' '){
+    const name = cname + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++){
+        let c = ca[i];
+        while(c.charAt(0) === ' '){
             c = c.substring(1);
         }
-        if(c.indexOf(name) == 0){
+        if(c.indexOf(name) === 0){
             return c.substring(name.length, c.length);
         }
     }
@@ -69,13 +63,13 @@ function getLastReleaseTag(callBack){
 
 function updateReleaseLinks(lastTag){
     $('a.replace-lastrelease').each(function(){
-        var newUrl = replaceAll($(this).attr("href"), '<lastRelease>', lastTag);
+        const newUrl = replaceAll($(this).attr("href"), '<lastRelease>', lastTag);
         $(this).attr("href", newUrl);
     });
 }
 
 function getReleasesTags(lastReleaseTag, callBack){
-    var releasesTags = getCookie("releasesTags");
+    const releasesTags = getCookie("releasesTags");
     if(releasesTags !== ""){
         if(releasesTags.split(",")[0] === lastReleaseTag || releasesTags.split(",")[1] === lastReleaseTag || releasesTags.split(",")[2] === lastReleaseTag){
             console.log("Using cookie to define releases tags");
@@ -88,7 +82,7 @@ function getReleasesTags(lastReleaseTag, callBack){
         url: "https://api.github.com/repos/clementgre/PDF4Teachers/tags",
         dataType: 'json',
 
-        success: function(json, status){
+        success: function(json){
 
             var tags = [];
             for(var tag in json){
@@ -125,10 +119,10 @@ function getData(data, key){
     return '';
 }
 
-var readyFunction = function(){
+function readyFunction(){
 
-    var pageName = document.location.href.split('/').reverse()[1];
-    var data = document.location.href.split('?').length >= 2 ? document.location.href.split('?')[1] : "";
+    const pageName = document.location.href.split('/').reverse()[1];
+    const data = document.location.href.split('?').length >= 2 ? document.location.href.split('?')[1] : "";
 
 ////////////////////////////////////////////////////////////////////
 ///////////////////////// NAV //////////////////////////////////////
@@ -137,29 +131,21 @@ var readyFunction = function(){
 ///////////////// OUVERTURE /////////////////
     $(document).on('touchstart click', '.menu-link', function(e){
         e.preventDefault();
-
-        if($('.global-nav').hasClass('nav-hide')){
-            $('nav').fadeIn(0);
-            $(".global-nav").animate({left: 0}, 500);
-            $('.filter').fadeIn(500); // Show filter
-            $('body').addClass('bodyfix'); // Disable scroll on body
-            setTimeout(function(){
-                $('.global-nav').removeClass('nav-hide'); // Remove hide nav info
-            }, 500);
-        }
-
+        openSideMenu();
     });
 
 ///////////////// FERMETURE /////////////////
     $(document).on('touchstart click', 'div.filter', function(e){
         e.preventDefault();
 
-        if(!$('.global-nav').hasClass('nav-hide')){
-            $('.global-nav').addClass('nav-hide'); // Add hide nav info
-            $(".global-nav").animate({left: -400}, 500);
-            $('.filter').fadeOut(500); // Hide filter
-            $('body').removeClass('bodyfix'); // Enable scroll on body
+        if($('.filter').html() !== ""){
+            $('.filter').html("");
         }
+
+        $('.filter').fadeOut(500); // Hide filter
+        $('body').removeClass('bodyfix'); // Enable scroll on body
+
+        hideSideMenu();
     });
 
 ///////////////// REDIMENTIONEMENT /////////////////
@@ -202,8 +188,8 @@ var readyFunction = function(){
         e.preventDefault();
         document.cookie = "language=" + $(this).attr('href') + "; sameSite=Strict; domain=pdf4teachers.org;path=/";
 
-        var hostUrl = location.href.split(".org", 2)[0];
-        if(hostUrl.split(".").length == 2){
+        const hostUrl = location.href.split(".org", 2)[0];
+        if(hostUrl.split(".").length === 2){
             location.href = "https://pdf4teachers.org" + location.href.split(".org", 2)[1];
 
         }else{
@@ -236,3 +222,53 @@ var readyFunction = function(){
     });
 }
 $(document).ready(readyFunction);
+
+function openSideMenu(){
+    const nav = $('.global-nav');
+    if(nav.hasClass('nav-hide')){
+        $('nav').fadeIn(0);
+        nav.animate({left: 0}, 500);
+        setTimeout(function(){
+            nav.removeClass('nav-hide'); // Remove hide nav info
+        }, 500);
+
+        $('.filter').html("");
+        $('.filter').fadeIn(500); // Show filter
+        $('body').addClass('bodyfix'); // Disable scroll on body
+    }
+}
+function hideSideMenu(){
+    const nav = $('.global-nav');
+    console.log("ask to hide side menu")
+    if(!nav.hasClass('nav-hide')){
+
+        nav.addClass('nav-hide'); // Add hide nav info
+        nav.animate({left: -400}, 500);
+
+        $('.filter').fadeOut(500); // Hide filter
+        $('body').removeClass('bodyfix'); // Enable scroll on body
+    }
+}
+
+////////////////////////////////////////////////////////////////////
+/////////////////////// E-mail popup ///////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+function openEmailPopup(e){
+    e.stopPropagation()
+    e.preventDefault()
+    console.log("Open email popup...")
+
+    $('.filter').fadeIn(500); // Show filter
+    $('body').addClass('bodyfix'); // Disable scroll on body
+
+
+    $.ajax({
+        url: "../php/emailPopup.php",
+        dataType: 'html',
+        success: (html) => {
+            $('.filter').html(html);
+        }
+    });
+
+}

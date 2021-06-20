@@ -15,7 +15,7 @@
     <h3><?= t("title.contacts") ?></h3>
     <a href="https://github.com/ClementGre/PDF4Teachers/issues/new" target="_blank"><i class="fab fa-github"></i>&nbsp;<?= t("linkname.github.issues") ?></a>
     <a href="https://twitter.com/pdf4teachers" target="_blank"><i class="fab fa-twitter"></i>&nbsp;Twitter</a>
-    <a href="mailto:clement.grennerat@free.fr" target="_blank"><i class="fas fa-envelope"></i>&nbsp;clement.grennerat@free.fr</a>
+    <a href="#" onclick="openEmailPopup(event)"><i class="fas fa-envelope"></i>&nbsp;Email</a>
   </div>
   <div>
     <h3><?= t("title.links") ?></h3>
