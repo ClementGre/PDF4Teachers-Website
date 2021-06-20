@@ -26,7 +26,7 @@ function getOS() {
                       '/webos/i'              =>  'Mobile');*/
     $os_array = array('/windows nt/i'     =>  'windows',
                       '/macintosh|mac os x/i' =>  'macosx',
-                      '/mac_powerpc/i'        =>  'macosx9',
+                      '/mac_powerpc/i'        =>  'macosx',
                       '/linux/i'              =>  'linux',
                       '/ubuntu/i'             =>  'linux');
 
@@ -46,13 +46,11 @@ function getOSs() {
   $platform = getOS();
   switch ($platform){
     case "windows":
-      return [$platform, "macosx", "macosx9", "linux", "linuxrpm"];
+      return [$platform, "macosx", "linux", "linuxrpm"];
     case "macosx":
-      return [$platform, "macosx9", "windows", "linux", "linuxrpm"];
-    case "macosx9":
-      return [$platform, "macosx", "windows", "linux", "linuxrpm"];
+      return [$platform, "windows", "linux", "linuxrpm"];
     case "linux":
-      return [$platform, "linuxrpm", "windows", "macosx", "macosx9"];
+      return [$platform, "linuxrpm", "windows", "macosx",];
   }
   return $platform;
 }

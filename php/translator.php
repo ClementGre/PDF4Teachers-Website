@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['language'])){
 	setcookie('language', $_POST['language'], array('samesite' => 'strict', 'path' => '/'));
 }else{

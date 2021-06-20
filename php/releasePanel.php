@@ -1,3 +1,7 @@
+
+
+<!--This file is no more used : everything is done in JS to prevent too much ajax request (previously one for release panel)-->
+
 <?php
     $acc = false;
     $tag = $_POST['tag'];

@@ -1,6 +1,10 @@
 <?php
+if(!isset($acc)) $acc = false;
+include_once 'translator.php';
+
 include 'getOs.php';
 $oss = getOss();
+
 
 if(gettype($oss) === "array"){
   $fileName;
@@ -31,7 +35,7 @@ if(gettype($oss) === "array"){
     <div class="dropdown-menu">
 
       <?php
-      for($i = 0; $i <= 4; $i++){
+      for($i = 0; $i <= 3; $i++){
         $fileName;
         switch($oss[$i]){
           case "windows":
@@ -39,9 +43,6 @@ if(gettype($oss) === "array"){
             break;
           case "macosx":
             $fileName = "PDF4Teachers-MacOSX-<lastRelease>.dmg";
-            break;
-          case "macosx9":
-            $fileName = "PDF4Teachers-MacOSX-<lastRelease>-BIN.zip";
             break;
           case "linux":
             $fileName = "PDF4Teachers-Linux-<lastRelease>.deb";
@@ -55,7 +56,7 @@ if(gettype($oss) === "array"){
       ?>
 
       <?php 
-        if(!isset($assignedButton)){
+        if(isset($isHeaderButton) && $isHeaderButton){
           if($acc){
             echo '<a class="dropdown-item replace-lastrelease" href="Download?v=<lastRelease>">' . t("button.download.openpage") . '</a>';
           }else{

@@ -100,37 +100,52 @@ function getTagSelector(tag){
  */
 async function loadDownloadPage(tags, toOpenTag){
 
-    for(let i = 0 ; i < tags.length ; i++){
+    await $.ajax({
+        url : "../php/downloadButton.php",
+        dataType : 'html',
+        success : function(downloadButtonHTML){
 
-        await $.ajax({
-            url : "../php/releasePanel.php",
-            type : "POST",
-            data : "tag=" + tags[i],
-            dataType : 'html',
-
-            success : function(html){
-                const tag = tags[i];
+            tags.forEach((tag) => {
                 // Return if the releases pane already exist
-                if($(getTagSelector(tags[i])).length > 0) return;
+                if($(getTagSelector(tag)).length > 0) return;
 
-                $('main').append(html);
+                $('main').append(getReleaseSectionHeaderHTML(tag, downloadButtonHTML));
 
                 // Replace links for download button
                 $('main a.replace-lastrelease').each(function(){
                     const newUrl = replaceAll($(this).attr("href"), '<lastRelease>', tag);
                     $(this).attr("href", newUrl);
                 });
+            })
 
-                // Open section to open
-                if(tag === toOpenTag){
-                    $(getTagSelector(tag) + ' i.fas').trigger("click");
-                    $('html').scrollTop($(getTagSelector(tag)).offset().top - 200);
-                }
-
+            // Open section to open
+            if(tags.includes(toOpenTag)){
+                $(getTagSelector(toOpenTag) + ' i.fas').trigger("click");
+                $('html').scrollTop($(getTagSelector(toOpenTag)).offset().top - 200);
             }
-        });
-    }
+        }
+    });
 }
+
+function getReleaseSectionHeaderHTML(tag, downloadButtonHTML){
+
+    const pre = tag.includes('-pre');
+    let title = (!pre) ? ('v' + tag) : ('pre-release ' + tag.split('-pre')[0] + "-" + tag.split('-pre')[1]);
+
+    return '<div is="release-section" class="info release-' + replaceAll(tag, ".", "-") + (pre ? ' pre-release' : '') + '">' +
+            '<div class="header accept-click">' +
+                '<div class="accept-click">' +
+                    '<i class="fas fa-chevron-down"></i>' +
+                    '<h2 class="accept-click">' + title + '</h2>' +
+                '</div>' +
+                '<div>' +
+                    '<a href="https://github.com/ClementGre/PDF4Teachers/releases/tag/' + tag + '" target="_blank"><i class="fab fa-github"></i></a>' +
+                    '<div>' + downloadButtonHTML + '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div><br>'
+}
+
 
 ////////////////////////////////////////////////////////////////////
 /////////// PARSE RELEASE DESCRIPTION / ASSETS SYSTEM //////////////

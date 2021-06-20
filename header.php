@@ -48,5 +48,5 @@
 </div>
 
 <div class="right">
-  <?php include 'php/downloadButton.php'; ?>
+  <?php $isHeaderButton = true; include 'php/downloadButton.php'; ?>
 </div>
