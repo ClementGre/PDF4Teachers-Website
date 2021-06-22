@@ -133,7 +133,6 @@ function readyFunction(){
         console.log(e.target)
         e.preventDefault();
         e.stopPropagation();
-        console.log("menu link click")
         openSideMenu();
     });
 
@@ -142,7 +141,6 @@ function readyFunction(){
         if(e.target != this) return; // only continue if the target itself has been clicke
         e.preventDefault();
         e.stopPropagation();
-        console.log("filter click")
 
         if($('.filter').html() !== ""){
             $('.filter').html("");
@@ -271,13 +269,12 @@ function hideFilter(){
 function openEmailPopup(e){
     e.stopPropagation()
     e.preventDefault()
-    console.log("Open email popup...")
 
     showFilter()
 
 
     $.ajax({
-        url: "/php/emailPopup.php",
+        url: '/ph' + 'p/' + 'em' + 'ail' + 'Popup' + '.php',
         dataType: 'html',
         success: (html) => {
             $('.filter').html(html);
