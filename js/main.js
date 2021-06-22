@@ -135,8 +135,8 @@ function readyFunction(){
     });
 
 ///////////////// FERMETURE /////////////////
-    $(document).on('touchstart click', 'div.filter', function(e){
-        if(e.target != this) return; // only continue if the target itself has been clicke
+    $(document).on('click', 'div.filter', function(e){
+        if(e.target != this) return; // only continue if the target itself has been clicked
         e.preventDefault();
 
         if($('.filter').html() !== ""){
@@ -196,7 +196,7 @@ function readyFunction(){
         }else{
 
             $.ajax({
-                url: document.location.href + "/index.php",
+                url: document.location.href,
                 type: 'POST',
                 dataType: 'html',
 
@@ -239,7 +239,6 @@ function openSideMenu(){
 }
 function hideSideMenu(){
     const nav = $('.global-nav');
-    console.log("ask to hide side menu")
     if(!nav.hasClass('nav-hide')){
 
         nav.addClass('nav-hide'); // Add hide nav info
