@@ -2,7 +2,7 @@
   <?php if($acc){ ?>
     <a href=""><img src="data/small-img/logo.png" /></a>
   <?php }else{ ?>
-    <a href="../"><img src="../data/small-img/logo.png" /></a>
+    <a href="/"><img src="/data/small-img/logo.png" /></a>
   <?php } ?>
 </div>
 
@@ -21,11 +21,11 @@
         </li> -->
       <?php }else{ ?>
         <li class="list">
-          <a href="../"><?= t("button.home") ?></a>
+          <a href="/"><?= t("button.home") ?></a>
         </li><li class="list <?php if($page === "Download"){echo "active";}?>">
-          <a href="../Download/"><?= t("button.download") ?></a>
+          <a href="/Download/"><?= t("button.download") ?></a>
         </li><li class="list <?php if($page === "About"){echo "active";}?>">
-          <a href="../About/"><?= t("button.about") ?></a>
+          <a href="/About/"><?= t("button.about") ?></a>
         </li><!-- <li class="list <?= ($page === "Contribute") ? "active" : "" ?>">
           <a href="../Contribute/"><?= t("button.contribute") ?></a>
         </li> -->
@@ -38,7 +38,7 @@
     <?php if($acc){ ?>
       <a class="menu-link" href=""><img src="data/small-img/menu.png" /></a>
     <?php }else{ ?>
-      <a class="menu-link" href=""><img src="../data/small-img/menu.png" /></a>
+      <a class="menu-link" href=""><img src="/data/small-img/menu.png" /></a>
     <?php } ?>
 </div>
 

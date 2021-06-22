@@ -56,17 +56,11 @@ if(isset($_POST['language'])){
 		}
 	}
 
-	if($acc){
-		foreach(file(realpath('commonTranslations/' . $language . '.properties'), true) as $line){
-			$value = explode('=', $line, 2)[1];
-			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((ord(substr($value, -1)) == 10 || ord(substr($value, -1)) == 13) ? substr($value, 0, -1) : $value)));
-		}
-	}else{
-		foreach(file(realpath('../commonTranslations/' . $language . '.properties'), true) as $line){
-			$value = explode('=', $line, 2)[1];
-			$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((ord(substr($value, -1)) == 10 || ord(substr($value, -1)) == 13) ? substr($value, 0, -1) : $value)));
-		}
+	foreach(file($rootPath .'/commonTranslations/' . $language . '.properties', true) as $line){
+		$value = explode('=', $line, 2)[1];
+		$translations = array_merge($translations, array(explode('=', $line, 2)[0] => ((ord(substr($value, -1)) == 10 || ord(substr($value, -1)) == 13) ? substr($value, 0, -1) : $value)));
 	}
+
 
 	// Translate a sentence
 	function t($key){
