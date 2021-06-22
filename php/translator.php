@@ -1,4 +1,12 @@
 <?php
+// SETUP ALL THESE THINGS FOR THE PAGES :
+
+global $rootPath;
+if(file_exists($_SERVER['DOCUMENT_ROOT'] . '/web/PDF4Teachers-Website')) {
+	$rootPath = $_SERVER['DOCUMENT_ROOT'] . '/web/PDF4Teachers-Website';
+}else{
+	$rootPath = $_SERVER['DOCUMENT_ROOT'];
+}
 
 if(isset($_POST['language'])){
 	setcookie('language', $_POST['language'], array('samesite' => 'strict', 'path' => '/'));

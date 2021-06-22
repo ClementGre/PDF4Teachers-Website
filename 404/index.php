@@ -1,10 +1,19 @@
-<?php $acc=false; $page="404"; require "/php/translator.php"; ?>
+<?php
+
+global $rootPath;
+if(file_exists($_SERVER['DOCUMENT_ROOT'] . '/web/PDF4Teachers-Website')) {
+    $rootPath = $_SERVER['DOCUMENT_ROOT'] . '/web/PDF4Teachers-Website';
+}else{
+    $rootPath = $_SERVER['DOCUMENT_ROOT'];
+}
+
+$acc=false; $page="404"; require $rootPath . "/php/translator.php"; ?>
 
 <!DOCTYPE html>
 <html lang="<?= $language ?>">
 <!--          PAGE INFO          -->
 <head>
-	<?php require '/analytics.php'; ?>
+	<?php require $rootPath . '/analytics.php'; ?>
 
 	<link rel="icon" href="/data/small-img/logo.png" />
 	<title><?= t("page.name") ?></title>
@@ -25,7 +34,7 @@
 	<div class="filter"></div>
 <!--          HEADER          -->
 	<header>
-		<?php include '/header.php'; ?>
+		<?php include $rootPath . '/header.php'; ?>
 	</header>
 
 
@@ -38,7 +47,7 @@
 
 <!--          FOOTER          -->
 	<footer>
-		<?php include '/footer.php'; ?>
+		<?php include $rootPath . '/footer.php'; ?>
 	</footer>
 
 	<script type='text/javascript' src="//code.jquery.com/jquery-1.10.2.min.js"></script>

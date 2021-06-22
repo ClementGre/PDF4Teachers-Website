@@ -4,7 +4,7 @@
 <html lang="<?= $language ?>">
 <!--          PAGE INFO          -->
 <head>
-	<?php require 'analytics.php'; ?>
+	<?php require $GLOBALS['rootPath'] . '/analytics.php'; ?>
 
 	<meta name="description" content="<?= t("page.description") ?>" />
 	<meta name="keywords" content="<?= t("page.keywords") ?>" />
@@ -28,9 +28,9 @@
 <body>
 	<div class="filter"></div>
 <!--          HEADER          -->
-	<header>
-		<?php include 'header.php'; ?>
-	</header>
+    <header>
+        <?php include $GLOBALS['rootPath'] . "/header.php"; ?>
+    </header>
 
 <!--          MAIN          -->
 	<main>
@@ -98,7 +98,7 @@
 
 <!--          FOOTER          -->
 	<footer>
-		<?php include 'footer.php'; ?>
+		<?php include $GLOBALS['rootPath'] . '/footer.php'; ?>
 	</footer>
 
 	<script type='text/javascript' src="//code.jquery.com/jquery-1.10.2.min.js"></script>
