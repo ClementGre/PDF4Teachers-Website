@@ -18,9 +18,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Varela+Round&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="../css/header.css" />
-	<link rel="stylesheet" type="text/css" href="../css/main.css" />
-	<link rel="stylesheet" type="text/css" href="../css/foot.css" />
+	<link rel="stylesheet" type="text/css" href="/css/header.css" />
+	<link rel="stylesheet" type="text/css" href="/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="/css/foot.css" />
 
 </head>
 
@@ -29,7 +29,7 @@
 
 <!--          HEADER          -->
 	<header>
-		<?php include '../header.php'; ?>
+		<?php include '/header.php'; ?>
 	</header>
 
 <!--          MAIN          -->
@@ -46,7 +46,7 @@
 
 <!--          FOOTER          -->
 	<footer>
-		<?php include '../footer.php'; ?>
+		<?php include '/footer.php'; ?>
 	</footer>
 
 	<script type='text/javascript' src="//code.jquery.com/jquery-1.10.2.min.js"></script>

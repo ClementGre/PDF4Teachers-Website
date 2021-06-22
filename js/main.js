@@ -136,6 +136,7 @@ function readyFunction(){
 
 ///////////////// FERMETURE /////////////////
     $(document).on('touchstart click', 'div.filter', function(e){
+        if(e.target != this) return; // only continue if the target itself has been clicke
         e.preventDefault();
 
         if($('.filter').html() !== ""){
@@ -232,9 +233,8 @@ function openSideMenu(){
             nav.removeClass('nav-hide'); // Remove hide nav info
         }, 500);
 
-        $('.filter').html("");
-        $('.filter').fadeIn(500); // Show filter
-        $('body').addClass('bodyfix'); // Disable scroll on body
+        showFilter()
+
     }
 }
 function hideSideMenu(){
@@ -245,9 +245,17 @@ function hideSideMenu(){
         nav.addClass('nav-hide'); // Add hide nav info
         nav.animate({left: -400}, 500);
 
-        $('.filter').fadeOut(500); // Hide filter
-        $('body').removeClass('bodyfix'); // Enable scroll on body
+        hideFilter();
     }
+}
+
+function showFilter(){
+    $('.filter').addClass("flex").fadeIn(500); // Hide filter
+    $('body').addClass('bodyfix'); // Disable scroll on body
+}
+function hideFilter(){
+    $('.filter').removeClass("flex").fadeOut(500); // Hide filter
+    $('body').removeClass('bodyfix'); // Enable scroll on body
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -259,12 +267,11 @@ function openEmailPopup(e){
     e.preventDefault()
     console.log("Open email popup...")
 
-    $('.filter').fadeIn(500); // Show filter
-    $('body').addClass('bodyfix'); // Disable scroll on body
+    showFilter()
 
 
     $.ajax({
-        url: "../php/emailPopup.php",
+        url: "/php/emailPopup.php",
         dataType: 'html',
         success: (html) => {
             $('.filter').html(html);

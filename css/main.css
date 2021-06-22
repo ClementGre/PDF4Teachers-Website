@@ -46,7 +46,6 @@ h3{
 }
 
 main{
-  background-color: #222f3e;
   background-color: #dfe4ea;
 }
 main li{
@@ -102,25 +101,56 @@ main img.full{
 }
 
 
+/*----- FILTER -----*/
+
+div.filter {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  will-change: opacity;
+  cursor: pointer;
+
+  justify-content: center;
+  align-items: center;
+}
+
 /*----- POPUP -----*/
+
+body.bodyfix {
+  overflow: hidden;
+}
 
 .filter .popup{
   background-color: aliceblue;
   border-radius: 10px;
   padding: 20px;
+  margin: 20px auto;
+  cursor: default;
+
+  overflow: auto;
+  max-height: calc(100vh - 20px);
   max-width: 700px;
-  margin: 20px;
-  vert-align: middle;
-  position: absolute;
-  top: 50%; right: 50%;
-  transform: translate(50%,-50%);
+
+  font-size: 18px;
+  font-weight: 400;
+  z-index: 950;
+}
+.filter.flex{
+  display: flex;
+}
+.filter p{
+  font-size: 19px;
+  font-weight: 300;
 }
 
 @media(max-width: 710px){
   .filter .popup{
     padding: 10px;
-  }
-  .filter .popup{
-    margin: 5px;
+    margin: 10px;
   }
 }

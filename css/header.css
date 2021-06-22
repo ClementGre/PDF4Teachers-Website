@@ -143,23 +143,6 @@ header .menu-div {
     display: none;
 }
 
-div.filter {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    will-change: opacity;
-    cursor: pointer;
-}
-
-body.bodyfix {
-    overflow: hidden;
-}
-
 @media (max-width: 1079px) {
     header .download-div {
         display: none;
