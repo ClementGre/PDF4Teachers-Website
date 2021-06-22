@@ -129,15 +129,20 @@ function readyFunction(){
 ////////////////////////////////////////////////////////////////////
 
 ///////////////// OUVERTURE /////////////////
-    $(document).on('touchstart click', '.menu-link', function(e){
+    $(document).on('mousedown', '.menu-link', function(e){
+        console.log(e.target)
         e.preventDefault();
+        e.stopPropagation();
+        console.log("menu link click")
         openSideMenu();
     });
 
 ///////////////// FERMETURE /////////////////
-    $(document).on('click', 'div.filter', function(e){
-        if(e.target != this) return; // only continue if the target itself has been clicked
+    $(document).on('mousedown', 'div.filter', function(e){
+        if(e.target != this) return; // only continue if the target itself has been clicke
         e.preventDefault();
+        e.stopPropagation();
+        console.log("filter click")
 
         if($('.filter').html() !== ""){
             $('.filter').html("");
@@ -196,7 +201,7 @@ function readyFunction(){
         }else{
 
             $.ajax({
-                url: document.location.href,
+                url: document.location.href + "/index.php",
                 type: 'POST',
                 dataType: 'html',
 
@@ -214,6 +219,8 @@ function readyFunction(){
                         })
                     }
                 }
+            }).fail(function fail(){
+                location.reload()
             });
 
 
