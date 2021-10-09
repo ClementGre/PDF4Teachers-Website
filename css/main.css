@@ -121,13 +121,7 @@ div.design-images div{
 div.design-images div:hover{
   border-radius: 3px;
   border: 1px solid #dcdcdc;
-  transform: scale(1.5);
-}
-div.design-images div:active{
-  border-radius: 3px;
-  border: 1px solid #dcdcdc;
-  width: 100%;
-  position: absolute;
+  transform: scale(1.7);
 }
 
 div.design-images div img{
