@@ -100,6 +100,7 @@ div.design-images, div.design-colors{
   justify-content: space-around;
   align-items: stretch;
   gap: 10px;
+  position: relative;
 }
 div.design-images div{
   background-size: 30px 30px;
@@ -111,11 +112,24 @@ div.design-images div{
   flex-grow: 1;
   border-radius: 5px;
   border: 2px solid #dcdcdc;
+  transition: .3s ease-in-out;
 
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
+div.design-images div:hover{
+  border-radius: 3px;
+  border: 1px solid #dcdcdc;
+  transform: scale(1.5);
+}
+div.design-images div:active{
+  border-radius: 3px;
+  border: 1px solid #dcdcdc;
+  width: 100%;
+  position: absolute;
+}
+
 div.design-images div img{
   object-fit: contain;
   max-width: 100%;

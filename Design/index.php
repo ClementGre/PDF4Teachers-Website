@@ -42,7 +42,7 @@
 
             <h2><?= t("logo.title") ?></h2>
 
-            <div class="design-images">
+            <div class="design-images" style="max-height: 150px">
                 <div><img src="../data/img/logo.png" alt="logo"></div>
                 <div><img src="../data/img/logo_backgrounded.png" alt="logo backgrounded"></div>
                 <div><img src="../data/img/logo_backgrounded_rounded.png" alt="logo backgrounded rounded"></div>
@@ -71,8 +71,8 @@
                 <?= getGradientDiv("Dark Gradient", "#7D1343", "#7E1A13") ?>
                 <?= getColorDiv("Dark Red", "#840C2C") ?>
                 <?= getColorDiv("Dark Blue", "#3C3B4B") ?>
-                <?= getColorDiv("Purple", "#8C8AFF") ?>
-                <?= getColorDiv("Gray", "#D0D8EB") ?>
+                <?= getColorDiv("Purple", "#8C8AFF", true) ?>
+                <?= getColorDiv("Gray", "#D0D8EB", true) ?>
 
 
             </div>
