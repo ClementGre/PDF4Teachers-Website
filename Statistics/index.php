@@ -1,4 +1,4 @@
-<?php $acc=false; $page="Documentation"; require "../php/translator.php"; ?>
+<?php $acc=false; $page="Statistics"; require "../php/translator.php"; ?>
 
 <!DOCTYPE html>
 <html lang="<?= $language ?>">

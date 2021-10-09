@@ -93,6 +93,38 @@ iframe.seek-table-frame{
   height: 600px;
 }
 
+/*----- DESIGN -----*/
+div.design-images, div.design-colors{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+div.design-images div{
+  border-radius: 5px;
+  border: 1px solid #343434;
+}
+div.design-images div img{
+  object-fit: contain;
+}
+
+div.design-colors div{
+  border-radius: 5px;
+  border: 1px solid #343434;
+}
+div.design-colors div p{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+div.design-colors div + p{
+  bottom: auto;
+  right: auto;
+  top: 5px;
+  left: 5px;
+}
+
 /*----- ANIMATIONS -----*/
 @keyframes from-left{
   0%{ transform: translateX(100%) skewY(20deg);}

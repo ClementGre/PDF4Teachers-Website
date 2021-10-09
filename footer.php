@@ -3,12 +3,14 @@
     <h3><?= t("title.pages") ?></h3>
     <?php if($acc){ ?>
       <a href="Documentation"><i class="fas fa-book"></i>&nbsp;&nbsp;<?= t("linkname.github.documentation") ?></i></a>
-      <a href="Statistics"><i class="far fa-chart-bar"></i><?= t("linkname.statistics") ?></a>
+      <a href="Statistics"><i class="far fa-chart-bar"></i>&nbsp;&nbsp;<?= t("linkname.statistics") ?></a>
+      <a href="Design"><i class="far fa-image"></i>&nbsp;&nbsp;<?= t("linkname.design") ?></a>
       <a href="License"><i class="fas fa-file-signature"></i>&nbsp;<?= t("linkname.github.liscence") ?></a>
       <a href="Contribute"><i class="fas fa-hands-helping"></i><?= t("button.contribute") ?></a>
     <?php }else{ ?>
       <a href="/Documentation"><i class="fas fa-book"></i>&nbsp;&nbsp;<?= t("linkname.github.documentation") ?></a>
-      <a href="/Statistics"><i class="far fa-chart-bar"></i><?= t("linkname.statistics") ?></a>
+      <a href="/Statistics"><i class="far fa-chart-bar"></i>&nbsp;&nbsp;<?= t("linkname.statistics") ?></a>
+      <a href="/Design"><i class="far fa-image"></i>&nbsp;&nbsp;<?= t("linkname.design") ?></a>
       <a href="/License"><i class="fas fa-file-signature"></i>&nbsp;<?= t("linkname.github.liscence") ?></a>
       <a href="/Contribute"><i class="fas fa-hands-helping"></i><?= t("button.contribute") ?></a>
     <?php } ?>
