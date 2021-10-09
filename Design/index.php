@@ -54,16 +54,16 @@
 
             <div class="design-colors">
                 <?php
-                function getColorDiv($name, $color){
+                function getColorDiv($name, $color, $black = false){
                     return "<div style='background-color:$color;' class='design-color'>
-                            <p class='color-name'>$name</p>
-                            <p class='color-hex'>$color</p>
+                            <p class='color-name" . $black ? " black" : "" . "'>$name</p>
+                            <p class='color-hex" . $black ? " black" : "" . "'>$color</p>
                         </div>";
                 }
-                function getGradientDiv($name, $from, $to){
+                function getGradientDiv($name, $from, $to, $black = false){
                     return "<div style='background: linear-gradient(0deg, $from, $to)' class='design-color'>
-                            <p class='color-name'>$name</p>
-                            <p class='color-hex'>$from &rarr; $to</p>
+                            <p class='color-name" . $black ? " black" : "" . "'>$name</p>
+                            <p class='color-hex" . $black ? " black" : "" . "'>$from &rarr; $to</p>
                         </div>";
                 }
                 ?>

@@ -130,15 +130,22 @@ div.design-colors div{
   height: 115px;
   position: relative;
 }
-div.design-colors p.color-name{
+div.design-colors p{
+  line-height: 100%;
   position: absolute;
+  color: #eaeaea;
+  font-family: 'Varela Round', sans-serif;
+}
+div.design-colors p.color-name{
   top: 5px;
   left: 5px;
 }
 div.design-colors p.color-hex{
-  position: absolute;
   bottom: 5px;
   right: 5px;
+}
+div.design-colors p.black{
+  color: #1c1c1c;
 }
 
 /*----- ANIMATIONS -----*/
