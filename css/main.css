@@ -117,7 +117,7 @@ div.design-images div{
   align-items: center;
   justify-content: space-around;
 }
-div.design-images div:hover{
+div.images-zoom div:hover{
   border-radius: 3px;
   border: 1px solid #dcdcdc;
   transform: scale(1.7);
@@ -125,8 +125,7 @@ div.design-images div:hover{
 
 div.design-images div img{
   object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
+  max-height: 150px;
 }
 
 div.design-colors div{

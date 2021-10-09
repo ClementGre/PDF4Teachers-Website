@@ -42,7 +42,7 @@
 
             <h2><?= t("logo.title") ?></h2>
 
-            <div class="design-images" style="max-height: 150px">
+            <div class="design-images">
                 <div><img src="../data/img/logo.png" alt="logo"></div>
                 <div><img src="../data/img/logo_backgrounded.png" alt="logo backgrounded"></div>
                 <div><img src="../data/img/logo_backgrounded_rounded.png" alt="logo backgrounded rounded"></div>
@@ -81,7 +81,7 @@
 
             <h2><?= t("images.title") ?></h2>
 
-            <div class="design-images">
+            <div class="design-images images-zoom">
                 <div><img src="../data/img/banner.png" alt="banner"></div>
                 <div><img src="../data/img/banner_thin.png" alt="banner thin"></div>
                 <div><img src="../data/img/title.png" alt="title"></div>
