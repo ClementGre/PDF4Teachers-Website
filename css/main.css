@@ -101,17 +101,24 @@ div.design-images, div.design-colors{
   align-items: center;
   gap: 10px;
 }
-div.design-images img{
+div.design-images div{
+  background: linear-gradient(45deg, rgb(246, 246, 246) 25%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 75%, rgb(246, 246, 246) 0px, rgb(246, 246, 246)), linear-gradient(45deg, rgb(246, 246, 246) 25%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 75%, rgb(246, 246, 246) 0px, rgb(246, 246, 246));
   flex-grow: 1;
   border-radius: 5px;
-  border: 1px solid #343434;
+  border: 3px solid #6c6c6c;
+}
+div.design-images div img{
   object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 div.design-colors div{
   flex-grow: 1;
   border-radius: 5px;
-  border: 1px solid #343434;
+  border: 3px solid #6c6c6c;
+  min-width: 230px;
+  height: 115px;
 }
 div.design-colors div p{
   position: absolute;

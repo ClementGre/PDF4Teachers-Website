@@ -43,9 +43,9 @@
             <h2><?= t("logo.title") ?></h2>
 
             <div class="design-images">
-                <img src="../data/img/logo.png" alt="logo">
-                <img src="../data/img/logo_backgrounded.png" alt="logo backgrounded">
-                <img src="../data/img/logo_backgrounded_rounded.png" alt="logo backgrounded rounded">
+                <div><img src="../data/img/logo.png" alt="logo"></div>
+                <div><img src="../data/img/logo_backgrounded.png" alt="logo backgrounded"></div>
+                <div><img src="../data/img/logo_backgrounded_rounded.png" alt="logo backgrounded rounded"></div>
             </div>
 
             <br><hr><br>
@@ -82,12 +82,12 @@
             <h2><?= t("images.title") ?></h2>
 
             <div class="design-images">
-                <img src="../data/img/banner.png" alt="banner">
-                <img src="../data/img/banner_thin.png" alt="banner thin">
-                <img src="../data/img/title.png" alt="title">
-                <img src="../data/img/shots/grading.png" alt="grading screenshot">
-                <img src="../data/img/shots/text-elements.png" alt="text elements screenshot">
-                <img src="../data/img/shots/vector-elements.png" alt="vectors elements screenshot">
+                <div><img src="../data/img/banner.png" alt="banner"></div>
+                <div><img src="../data/img/banner_thin.png" alt="banner thin"></div>
+                <div><img src="../data/img/title.png" alt="title"></div>
+                <div><img src="../data/img/shots/grading.png" alt="grading screenshot"></div>
+                <div><img src="../data/img/shots/text-elements.png" alt="text elements screenshot"></div>
+                <div><img src="../data/img/shots/vector-elements.png" alt="vectors elements screenshot"></div>
             </div>
 
             <br><hr><br>
