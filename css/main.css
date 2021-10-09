@@ -101,15 +101,15 @@ div.design-images, div.design-colors{
   align-items: center;
   gap: 10px;
 }
-div.design-images div{
+div.design-images img{
+  flex-grow: 1;
   border-radius: 5px;
   border: 1px solid #343434;
-}
-div.design-images div img{
   object-fit: contain;
 }
 
 div.design-colors div{
+  flex-grow: 1;
   border-radius: 5px;
   border: 1px solid #343434;
 }

@@ -61,7 +61,7 @@
                         </div>";
                 }
                 function getGradientDiv($name, $from, $to){
-                    return "<div style='background: linear-gradient($from, $to, 0deg)' class='design-color'>
+                    return "<div style='background: linear-gradient(0deg, $from, $to)' class='design-color'>
                             <p>$name</p>
                             <p>$from &rarr $to</p>
                         </div>";
