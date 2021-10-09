@@ -97,7 +97,7 @@
 
             <br>
             <div style="text-align: center;">
-                <a class="btn btn-primary" role="button" href="https://www.figma.com/file/4ZgV5y21Zt0slp8CtsrrS3/PDF4Teachers-design?node-id=0%3A1">Figma Project</a>
+                <a class="btn btn-primary" role="button" href="https://www.figma.com/file/4ZgV5y21Zt0slp8CtsrrS3/PDF4Teachers-design?node-id=0%3A1" target="_blank">Design Figma</a>
             </div>
             <br>
 
