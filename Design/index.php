@@ -56,14 +56,14 @@
                 <?php
                 function getColorDiv($name, $color){
                     return "<div style='background-color:$color;' class='design-color'>
-                            <p>$name</p>
-                            <p>$color</p>
+                            <p class='color-name'>$name</p>
+                            <p class='color-hex'>$color</p>
                         </div>";
                 }
                 function getGradientDiv($name, $from, $to){
                     return "<div style='background: linear-gradient(0deg, $from, $to)' class='design-color'>
-                            <p>$name</p>
-                            <p>$from &rarr $to</p>
+                            <p class='color-name'>$name</p>
+                            <p class='color-hex'>$from &rarr; $to</p>
                         </div>";
                 }
                 ?>
@@ -101,8 +101,8 @@
             </div>
             <br>
 
-            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2F4ZgV5y21Zt0slp8CtsrrS3%2FPDF4Teachers-design%3Fnode-id%3D0%253A1"
-                    allowfullscreen="" width="100%" height="450"></iframe>
+            <!--<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2F4ZgV5y21Zt0slp8CtsrrS3%2FPDF4Teachers-design%3Fnode-id%3D0%253A1"
+                    allowfullscreen="" width="100%" height="450"></iframe>-->
 
 
 		</div>

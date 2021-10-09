@@ -98,14 +98,23 @@ div.design-images, div.design-colors{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: stretch;
   gap: 10px;
 }
 div.design-images div{
-  background: linear-gradient(45deg, rgb(246, 246, 246) 25%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 75%, rgb(246, 246, 246) 0px, rgb(246, 246, 246)), linear-gradient(45deg, rgb(246, 246, 246) 25%, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 75%, rgb(246, 246, 246) 0px, rgb(246, 246, 246));
+  background-size: 30px 30px;
+  background-position: 0 0, 45px 45px;
+  background-color: white;
+  background-image: linear-gradient(45deg,#f6f6f6 25%,transparent 0,transparent 75%,#f6f6f6 0,#f6f6f6),linear-gradient(45deg,#f6f6f6 25%,transparent 0,transparent 75%,#f6f6f6 0,#f6f6f6);
+
+  max-width: 240px;
   flex-grow: 1;
   border-radius: 5px;
-  border: 3px solid #6c6c6c;
+  border: 2px solid #dcdcdc;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 div.design-images div img{
   object-fit: contain;
@@ -116,20 +125,20 @@ div.design-images div img{
 div.design-colors div{
   flex-grow: 1;
   border-radius: 5px;
-  border: 3px solid #6c6c6c;
+  border: 2px solid #dcdcdc;
   min-width: 230px;
   height: 115px;
+  position: relative;
 }
-div.design-colors div p{
+div.design-colors p.color-name{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+div.design-colors p.color-hex{
   position: absolute;
   bottom: 5px;
   right: 5px;
-}
-div.design-colors div + p{
-  bottom: auto;
-  right: auto;
-  top: 5px;
-  left: 5px;
 }
 
 /*----- ANIMATIONS -----*/
