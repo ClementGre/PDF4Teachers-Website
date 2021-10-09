@@ -40,8 +40,6 @@
 
             <br><hr><br>
 
-            <h2><?= t('title.visualizeStats') ?></h2>
-            <br>
 			<iframe class="seek-table-frame" src="https://www.seektable.com/public/report/3f3b30e387ff46209d874f88923ed39a"></iframe>
             <iframe class="seek-table-frame" src="https://www.seektable.com/public/report/94d847625bfb4869a6da42a3b752f3c5"></iframe>
             <iframe class="seek-table-frame" src="https://www.seektable.com/public/report/d6902bad2cdd41918aa3df8111f74c3e"></iframe>
@@ -53,7 +51,7 @@
 
             <h2><?= t('title.downloadStats') ?></h2>
             <br>
-            <form action="downloadStats.php">
+            <form action="downloadStats.php" style="text-align: center;">
                 <button type="submit" class="btn btn-primary">
                     <?= t('button.download') ?>
                 </button>
