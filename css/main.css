@@ -100,7 +100,6 @@ div.design-images, div.design-colors{
   justify-content: space-around;
   align-items: stretch;
   gap: 10px;
-  position: relative;
 }
 div.design-images div{
   background-size: 30px 30px;
