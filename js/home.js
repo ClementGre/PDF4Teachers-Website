@@ -6,17 +6,17 @@ $(document).ready(() => {
     const interval = 10;
     let status = 0;
     setInterval(() => {
+        status++;
+        if(status >= previewImages.length){
+            status = 0;
+        }
+
         const img = $('.preview-block img');
         img.addClass("hidden");
+        img.attr("src", previewImages[status])
 
         setTimeout(() => {
-            img.attr("src", previewImages[status])
             img.removeClass("hidden");
-
-            status++;
-            if(status >= previewImages.length){
-                status = 0;
-            }
         }, 300);
 
     }, 1000 * interval);
