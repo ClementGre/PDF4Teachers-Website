@@ -26,8 +26,8 @@
         <p>
             <?= t("emailpopup.emailAnyway"); ?>
         </p>
-        <a href="mailto:clement.grennerat@free.fr" target="_blank">
-            clement.grennerat@free.fr
+        <a href="mailto:clement.grennerat@gmx.com" target="_blank">
+            clement.grennerat@gmx.com
         </a>
     </div>
 </div>
