@@ -45,6 +45,7 @@ if(isset($_POST['language'])){
 	}else{
 		$language = getBrowserLanguage($languages);
 	}
+
 	// Load translation file
 	$translations = array();
 	$translationsFile = realpath('translations/' . $language . '.properties');

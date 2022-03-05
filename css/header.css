@@ -32,11 +32,11 @@ header img {
 /* RIGHT BTNS */
 header > div.right {
     float: right;
-    margin: 15px 16px 16px 0px;
+    margin: 15px 16px 16px 0;
 }
 
 header > div.menu-div {
-    margin: 0px;
+    margin: 0;
 }
 
 .dropdown-div {
@@ -53,7 +53,6 @@ header > div.menu-div {
 .download-div > .base-button > a {
     text-decoration: none;
     margin: 0;
-    padding: 0;
     color: white;
     padding: 10px 12px;
 }
@@ -153,7 +152,7 @@ header .menu-div {
 
     header > div.right-and-left {
         float: none;
-        margin: 16px 0px 16px 0px;
+        margin: 16px 0 16px 0;
     }
 
     header .menu-div {
