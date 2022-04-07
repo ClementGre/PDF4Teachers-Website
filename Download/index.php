@@ -41,7 +41,30 @@
 
 <!--          MAIN          -->
 	<main class="download-page">
-		<br>	
+	    <br>
+	    <div class="info download-panel">
+            <?php
+                $link = "https://github.com/ClementGre/PDF4Teachers/releases/download/<lastRelease>/PDF4Teachers-";
+                $versions = ['linux' => ['deb' => 'Linux-<lastRelease>.deb', 'tar.gz' => 'Linux-<lastRelease>-BIN.tar.gz'],
+                    'windows' => ['msi' => 'Windows-<lastRelease>.msi', 'zip' => 'Windows-<lastRelease>-BIN.zip'/*, 'zip (32 bits)' => 'Windows32-<lastRelease>-BIN.zip'*/],
+                    'macos' => ['dmg' => 'MacOSX-<lastRelease>.dmg']];
+
+                foreach($versions as $os => $files){
+                    echo '<div class="os-pane">';
+                    $i = 0;
+                    foreach($files as $ext => $name){
+                        $class = $i == 0 ? 'dl-default' : (count($files) == $i + 1 ? 'dl-last' : 'dl-middle');
+                        if($i == 0 && count($files) !== 1) $class .= ' dl-first';
+                        echo '<a href="' . $link . $name .'" class="replace-lastrelease '.$class.'">
+                                '. ($i == 0 ? '<img src="../data/small-img/os/'.$os.'.png" alt="Linux">' : '') . '
+                                <p>.'.$ext.'</p>
+                            </a>';
+                        $i++;
+                    }
+                    echo '</div>';
+                }
+            ?>
+	    </div>
 	</main>
 
 <!--          FOOTER          -->

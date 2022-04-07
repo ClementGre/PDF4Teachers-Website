@@ -53,7 +53,7 @@ function getLastReleaseTag(callBack){
                 callBack(json.tag_name);
             }
         }).fail(function fail(){
-            callBack("1.2.1");
+            callBack("1.3.1");
         });
     }else{
         console.log("Using cookie to define last release tag");
@@ -179,7 +179,7 @@ function readyFunction(){
             getReleasesTags(tag, function callBack(tags){
                 global.tags = tags;
                 console.log("detected releases tags = " + tags);
-                loadDownloadPage(tags, (getData(data, "v") === "" ? tag : getData(data, "v")));
+                loadDownloadPage(tags, tag, getData(data, "v"));
             })
         }
     });
@@ -213,7 +213,7 @@ function readyFunction(){
                     // DOWNLOAD PAGE
                     if(pageName === "Download"){
                         getReleasesTags(global.lastReleaseTag, function callBack(tags){
-                            loadDownloadPage(global.tags, (getData(data, "v") === "" ? global.lastReleaseTag : getData(data, "v")));
+                            loadDownloadPage(global.tags, global.lastReleaseTag, getData(data, "v"));
                         })
                     }
                 }

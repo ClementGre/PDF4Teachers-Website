@@ -1,87 +1,168 @@
 .download-page{
     min-height: 500px;
-  }
-  .download-page .info{
-    border-radius: 4px;
-    padding: 0;
-  }
-  .download-page .header{
-    display: flex;
-    justify-content: space-between;
-    background-color: #353b48;
-    align-items: center;
-    padding: 5px;
-    border-radius: 4px;
-  }
-  .download-page .info.pre-release .header{
-    background-color: #b33939;
-  }
-  .download-page .header > div{
-    display: flex;
-    align-items: center;
-  }
-  .download-page .header h2{
-    margin: 0;
-    color: white;
-  }
-  .download-page .header i{
-    margin: auto 10px;
-    font-size: 22px;
-    cursor: pointer;
-    align-self: center;
-    color: white;
-  }
-  
-  .download-page .header .base-button a{
-    height: 39px;
-  }
-  .download-page .header i.fa-github{
-    font-size: 33px;
-    transition: all 0.2s ease-in-out;
-    vertical-align: middle;
-  }
-  .download-page .header i.fa-github:hover{
-    font-size: 37px;
-    margin: auto 8px;
-  }
+}
+.download-page .info{
+  border-radius: 4px;
+  padding: 0;
+}
+
+/* ////////////////////////// */
+/* ///// DOWNLOAD PANEL ///// */
+/* ////////////////////////// */
+
+.download-page .info.download-panel{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  background: none;
+  gap: 10px;
+}
+.download-page .info.download-panel .os-pane{
+  display: block;
+  margin-bottom: 33px;
+}
+.download-page .info.download-panel .os-pane:hover{
+  margin-bottom: 10px;
+}
+
+.download-page .info.download-panel .os-pane a{
+  display: block;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 170px;
+  transition: all .2s ease-in-out;
+}
+.download-page .info.download-panel .os-pane a.dl-default{
+  height: auto;
+}
+.download-page .info.download-panel .os-pane a ~ a{
+  opacity: 0;
+  height: 0;
+  transform: translateY(-35px);
+  margin-top: 1px;
+}
+.download-page .info.download-panel .os-pane:hover a{
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, .2);
+  text-decoration: none;
+}
+.download-page .info.download-panel .os-pane:hover a ~ a{
+  opacity: 1;
+  height: 33px;
+  transform: translateY(0);
+}
+
+.download-page .info.download-panel .os-pane img{
+  height: 130px;
+  display: block;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.download-page .info.download-panel .os-pane p{
+  background-color: #353b48;
+  padding: 3px;
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.download-page .info.download-panel .os-pane a.dl-last p{
+  border-radius: 0 0 8px 8px;
+}
+.download-page .info.download-panel .os-pane a.dl-default p{
+  border-radius: 8px;
+}
+.download-page .info.download-panel .os-pane:hover a.dl-first p{
+  border-radius: 8px 8px 0 0;
+}
+.download-page .info.download-panel .os-pane a:hover p{
+  background-color: #232831;
+}
+
+/* //////////////////////// */
+/* ///// RELEASE LIST ///// */
+/* //////////////////////// */
+
+.download-page .header{
+  display: flex;
+  justify-content: space-between;
+  background-color: #353b48;
+  align-items: center;
+  padding: 5px;
+  border-radius: 4px;
+}
+.download-page .info.pre-release .header{
+  background-color: #b33939;
+}
+.download-page .header > div{
+  display: flex;
+  align-items: center;
+}
+.download-page .header h2{
+  margin: 0;
+  color: white;
+}
+.download-page .header i{
+  margin: auto 10px;
+  font-size: 22px;
+  cursor: pointer;
+  align-self: center;
+  color: white;
+}
+
+.download-page .header .base-button a{
+  height: 39px;
+}
+.download-page .header i.fa-github{
+  font-size: 33px;
+  transition: all 0.2s ease-in-out;
+  vertical-align: middle;
+}
+.download-page .header i.fa-github:hover{
+  font-size: 37px;
+  margin: auto 8px;
+}
+.download-page .content{
+  padding: 20px;
+}
+@media(max-width: 800px){
   .download-page .content{
-    padding: 20px;
+    padding: 10px;
   }
-  @media(max-width: 800px){
-    .download-page .content{
-      padding: 10px;
-    }
-  }
-  .download-page .content br{
-    display: block;
-    margin: 10px;
-  }
-  .download-page .content h2, .download-page .content ul{
-    margin: 0;
-  }
-  .download-page .content p, .download-page .content li{
-    font-size: 18px;
-  }
-  
-  
-  .download-page .info.pre-release .downloads .title h2::after{
-    content: '  ⚠️ This is a pre-release / beta ⚠️';
-  }
-  .download-page .downloads .title{
-    font-size: 15px;
-    font-weight: 300;
-    display: flex;
-    justify-content: space-between;
-  }
-  .download-page .asset{
-    display: flex;
-    justify-content: space-between;
-  }
-  .download-page .downloads .asset a{
-    font-size: 17px;
-    font-weight: 400;
-  }
-  .download-page .downloads p{
-    font-size: 15px;
-    font-weight: 300;
-  }
+}
+.download-page .content br{
+  display: block;
+  margin: 10px;
+}
+.download-page .content h2, .download-page .content ul{
+  margin: 0;
+}
+.download-page .content p, .download-page .content li{
+  font-size: 18px;
+}
+
+
+.download-page .info.pre-release .downloads .title h2::after{
+  content: '  ⚠️ This is a pre-release / beta ⚠️';
+}
+.download-page .downloads .title{
+  font-size: 15px;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+}
+.download-page .asset{
+  display: flex;
+  justify-content: space-between;
+}
+.download-page .downloads .asset a{
+  font-size: 17px;
+  font-weight: 400;
+}
+.download-page .downloads p{
+  font-size: 15px;
+  font-weight: 300;
+}

@@ -94,9 +94,10 @@ function getTagSelector(tag){
 
 /**
  * @param tags A list of all the tags
- * @param toOpenTag The tag to open directly
+ * @param lastReleaseTag The tag of the last release
+ * @param toOpenTag The tag to open directly. If null, the last release will be opened
  */
-async function loadDownloadPage(tags, toOpenTag){
+async function loadDownloadPage(tags, lastReleaseTag, toOpenTag){
 
     await $.ajax({
         url : "../php/downloadButton.php",
@@ -116,10 +117,17 @@ async function loadDownloadPage(tags, toOpenTag){
                 });
             })
 
-            // Open section to open
+            // Open section if toOpenTag
             if(tags.includes(toOpenTag)){
                 $(getTagSelector(toOpenTag) + ' i.fas').trigger("click");
-                $('html').scrollTop($(getTagSelector(toOpenTag)).offset().top - 200);
+                const inter = setInterval(() => {
+                    $('html').scrollTop($(getTagSelector(toOpenTag)).offset().top - 31);
+                }, 50);
+                setTimeout(() => {
+                    clearInterval(inter);
+                }, 1000);
+            }else if(tags.includes(lastReleaseTag)){
+                $(getTagSelector(lastReleaseTag) + ' i.fas').trigger("click");
             }
         }
     });
