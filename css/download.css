@@ -10,13 +10,7 @@
 /* ///// DOWNLOAD PANEL ///// */
 /* ////////////////////////// */
 
-.download-page .info button.btn-success a{
-  overflow: hidden;
-  white-space: nowrap;
-  display: block;
-  text-overflow: ellipsis;
-  max-width: 40vw;
-}
+
 .download-page .info.download-panel{
   display: flex;
   flex-direction: row;
@@ -87,6 +81,14 @@
 }
 .download-page .info.download-panel .os-pane a:hover p{
   background-color: #232831;
+}
+.download-page .info button.btn-success a{
+  max-width: 40vw;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-top: 7px;
 }
 
 /* //////////////////////// */
