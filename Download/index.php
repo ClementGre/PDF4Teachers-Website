@@ -46,7 +46,7 @@
             <?php
                 $link = "https://github.com/ClementGre/PDF4Teachers/releases/download/<lastRelease>/PDF4Teachers-";
                 $versions = ['linux' => ['deb' => 'Linux-<lastRelease>.deb', 'tar.gz' => 'Linux-<lastRelease>-BIN.tar.gz'],
-                    'windows' => ['msi' => 'Windows-<lastRelease>.msi', 'zip' => 'Windows-<lastRelease>-BIN.zip'/*, 'zip (32 bits)' => 'Windows32-<lastRelease>-BIN.zip'*/],
+                    'windows' => ['msi' => 'Windows-<lastRelease>.msi', 'zip' => 'Windows-<lastRelease>-BIN.zip', 'zip (32 bits)' => 'Windows32-<lastRelease>-BIN.zip'],
                     'macos' => ['dmg' => 'MacOSX-<lastRelease>.dmg']];
 
                 foreach($versions as $os => $files){

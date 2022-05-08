@@ -10,6 +10,13 @@
 /* ///// DOWNLOAD PANEL ///// */
 /* ////////////////////////// */
 
+.download-page .info button.btn-success a{
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  text-overflow: ellipsis;
+  max-width: 40vw;
+}
 .download-page .info.download-panel{
   display: flex;
   flex-direction: row;
