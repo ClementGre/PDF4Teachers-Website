@@ -7,15 +7,15 @@ $oss = getOss();
 
 
 if(gettype($oss) === "array"){
-  $fileName;
+  $fileName = "";
   switch($oss[0]){
     case "windows":
       $fileName = "PDF4Teachers-Windows-<lastRelease>.msi";
       break;
-    case "macosx":
+    case "macosxsilicon":
       $fileName = "PDF4Teachers-MacOSX-<lastRelease>.dmg";
       break;
-    case "macosx9":
+    case "macosx":
       $fileName = "PDF4Teachers-MacOSX-<lastRelease>-BIN.zip";
       break;
     case "linux":
@@ -24,7 +24,7 @@ if(gettype($oss) === "array"){
     case "linuxrpm":
       $fileName = "PDF4Teachers-Linux-<lastRelease>-BIN.tar.gz";
       break;
-  }
+}
 
   $link = "https://github.com/ClementGre/PDF4Teachers/releases/download/<lastRelease>/";
   ?>
@@ -35,11 +35,14 @@ if(gettype($oss) === "array"){
     <div class="dropdown-menu">
 
       <?php
-      for($i = 0; $i <= 3; $i++){
+      for($i = 0; $i < 5; $i++){
         $fileName;
         switch($oss[$i]){
           case "windows":
             $fileName = "PDF4Teachers-Windows-<lastRelease>.msi";
+            break;
+          case "macosxsilicon":
+            $fileName = "PDF4Teachers-MacOSX-<lastRelease>-Silicon.dmg";
             break;
           case "macosx":
             $fileName = "PDF4Teachers-MacOSX-<lastRelease>.dmg";

@@ -46,8 +46,8 @@
             <?php
                 $link = "https://github.com/ClementGre/PDF4Teachers/releases/download/<lastRelease>/PDF4Teachers-";
                 $versions = ['linux' => ['deb' => 'Linux-<lastRelease>.deb', 'tar.gz' => 'Linux-<lastRelease>-BIN.tar.gz'],
-                    'windows' => ['msi' => 'Windows-<lastRelease>.msi', 'zip' => 'Windows-<lastRelease>-BIN.zip', 'zip (32 bits)' => 'Windows32-<lastRelease>-BIN.zip'],
-                    'macos' => ['dmg' => 'MacOSX-<lastRelease>.dmg']];
+                    'windows' => ['msi' => 'Windows-<lastRelease>.msi', 'zip' => 'Windows-<lastRelease>-BIN.zip', 'zip <span style="font-size: 13px">(32 bits)</span>' => 'Windows32-<lastRelease>-BIN.zip'],
+                    'macos' => ['dmg <span style="font-size: 13px">(Apple Silicon)</span>' => 'MacOSX-<lastRelease>-Silicon.dmg', 'dmg <span style="font-size: 13px">(Intel)</span>' => 'MacOSX-<lastRelease>.dmg']];
 
                 foreach($versions as $os => $files){
                     echo '<div class="os-pane">';

@@ -1,15 +1,7 @@
 <?php
 function getOS() {
 
-    /*$os_array = array('/windows nt 10/i'     =>  'Windows 10',
-                      '/windows nt 6.3/i'     =>  'Windows 8.1',
-                      '/windows nt 6.2/i'     =>  'Windows 8',
-                      '/windows nt 6.1/i'     =>  'Windows 7',
-                      '/windows nt 6.0/i'     =>  'Windows Vista',
-                      '/windows nt 5.2/i'     =>  'Windows Server 2003/XP x64',
-                      '/windows nt 5.1/i'     =>  'Windows XP',
-                      '/windows xp/i'         =>  'Windows XP',
-                      '/windows nt 5.0/i'     =>  'Windows 2000',
+    /*$os_array = array(
                       '/windows me/i'         =>  'Windows ME',
                       '/win98/i'              =>  'Windows 98',
                       '/win95/i'              =>  'Windows 95',
@@ -25,20 +17,17 @@ function getOS() {
                       '/blackberry/i'         =>  'BlackBerry',
                       '/webos/i'              =>  'Mobile');*/
     $os_array = array('/windows nt/i'     =>  'windows',
-                      '/macintosh|mac os x/i' =>  'macosx',
-                      '/mac_powerpc/i'        =>  'macosx',
+                      '/macintosh|mac os x|mac_powerpc/i' =>  'macosx',
                       '/linux/i'              =>  'linux',
                       '/ubuntu/i'             =>  'linux');
 
     $os_platform = "unknown";
     foreach($os_array as $regex => $value){
         if(preg_match($regex, $_SERVER["HTTP_USER_AGENT"])){
-            $os_platform    =   $value;
+            $os_platform = $value;
         }
     }
-
     return $os_platform;
-
 }
 
 function getOSs() {
@@ -46,13 +35,11 @@ function getOSs() {
   $platform = getOS();
   switch ($platform){
     case "windows":
-      return [$platform, "macosx", "linux", "linuxrpm"];
+      return ["windows", "macosxsilicon", "macosx", "linux", "linuxrpm"];
     case "macosx":
-      return [$platform, "windows", "linux", "linuxrpm"];
+      return ["macosxsilicon", "macosx", "windows", "linux", "linuxrpm"];
     case "linux":
-      return [$platform, "linuxrpm", "windows", "macosx",];
+      return ["linux", "linuxrpm", "windows", "macosxsilicon", "macosx"];
   }
   return $platform;
 }
-
-?>
