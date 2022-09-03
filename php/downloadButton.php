@@ -13,10 +13,10 @@ if(gettype($oss) === "array"){
       $fileName = "PDF4Teachers-Windows-<lastRelease>.msi";
       break;
     case "macosxsilicon":
-      $fileName = "PDF4Teachers-MacOSX-<lastRelease>.dmg";
+      $fileName = "PDF4Teachers-MacOSX-<lastRelease>-Aarch64.dmg";
       break;
     case "macosx":
-      $fileName = "PDF4Teachers-MacOSX-<lastRelease>-BIN.zip";
+      $fileName = "PDF4Teachers-MacOSX-<lastRelease>.dmg";
       break;
     case "linux":
       $fileName = "PDF4Teachers-Linux-<lastRelease>.deb";
