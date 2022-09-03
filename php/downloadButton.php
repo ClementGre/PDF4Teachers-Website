@@ -13,7 +13,7 @@ if(gettype($oss) === "array"){
       $fileName = "PDF4Teachers-Windows-<lastRelease>.msi";
       break;
     case "macosxsilicon":
-      $fileName = "PDF4Teachers-MacOSX-<lastRelease>-Aarch64.dmg";
+      $fileName = "PDF4Teachers-MacOSX-<lastRelease>-AArch64.dmg";
       break;
     case "macosx":
       $fileName = "PDF4Teachers-MacOSX-<lastRelease>.dmg";
@@ -42,7 +42,7 @@ if(gettype($oss) === "array"){
             $fileName = "PDF4Teachers-Windows-<lastRelease>.msi";
             break;
           case "macosxsilicon":
-            $fileName = "PDF4Teachers-MacOSX-<lastRelease>-Silicon.dmg";
+            $fileName = "PDF4Teachers-MacOSX-<lastRelease>-AArch64.dmg";
             break;
           case "macosx":
             $fileName = "PDF4Teachers-MacOSX-<lastRelease>.dmg";

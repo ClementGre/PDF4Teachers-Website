@@ -45,9 +45,16 @@
 	    <div class="info download-panel">
             <?php
                 $link = "https://github.com/ClementGre/PDF4Teachers/releases/download/<lastRelease>/PDF4Teachers-";
-                $versions = ['linux' => ['deb' => 'Linux-<lastRelease>.deb', 'tar.gz' => 'Linux-<lastRelease>-BIN.tar.gz'],
-                    'windows' => ['msi' => 'Windows-<lastRelease>.msi', 'zip' => 'Windows-<lastRelease>-BIN.zip', 'zip <span style="font-size: 13px">(32 bits)</span>' => 'Windows32-<lastRelease>-BIN.zip'],
-                    'macos' => ['dmg <span style="font-size: 13px">(Apple Silicon)</span>' => 'MacOSX-<lastRelease>-Aarch64.dmg', 'dmg <span style="font-size: 13px">(Intel)</span>' => 'MacOSX-<lastRelease>.dmg']];
+                $versions = ['linux' =>
+                        ['deb' => 'Linux-<lastRelease>.deb',
+                            'tar.gz' => 'Linux-<lastRelease>-BIN.tar.gz'],
+                    'windows' =>
+                        ['msi' => 'Windows-<lastRelease>.msi',
+                            'zip' => 'Windows-<lastRelease>-BIN.zip',
+                            'zip <span style="font-size: 13px">(32 bits)</span>' => 'Windows32-<lastRelease>-BIN.zip'],
+                    'macos' =>
+                        ['dmg <span style="font-size: 13px">(Apple Silicon)</span>' => 'MacOSX-<lastRelease>-AArch64.dmg',
+                            'dmg <span style="font-size: 13px">(Intel)</span>' => 'MacOSX-<lastRelease>.dmg']];
 
                 foreach($versions as $os => $files){
                     echo '<div class="os-pane">';
