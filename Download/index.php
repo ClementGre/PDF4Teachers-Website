@@ -53,7 +53,7 @@
                             'zip' => 'Windows-<lastRelease>.zip',
                             'zip <span style="font-size: 13px">(32 bits)</span>' => 'Windows32-<lastRelease>.zip'],
                     'macos' =>
-                        ['dmg <span style="font-size: 13px">(Apple Silicon)</span>' => 'MacOSX-<lastRelease>-AArch64.dmg',
+                        ['dmg <span style="font-size: 13px">(Apple Silicon)</span>' => 'MacOSX-AArch64-<lastRelease>.dmg',
                             'dmg <span style="font-size: 13px">(Intel)</span>' => 'MacOSX-<lastRelease>.dmg']];
 
                 foreach($versions as $os => $files){
