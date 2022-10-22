@@ -16,7 +16,7 @@ if(gettype($oss) === "array"){
       $fileName = "PDF4Teachers-MacOSX-<lastRelease>-AArch64.dmg";
       break;
     case "macosx":
-      $fileName = "PDF4Teachers-MacOSX-<lastRelease>.dmg";
+      $fileName = "PDF4Teachers-MacOSX-<lastRelease>-BIN.zip";
       break;
     case "linux":
       $fileName = "PDF4Teachers-Linux-<lastRelease>.deb";
