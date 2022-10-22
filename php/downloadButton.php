@@ -16,13 +16,13 @@ if(gettype($oss) === "array"){
       $fileName = "PDF4Teachers-MacOSX-<lastRelease>-AArch64.dmg";
       break;
     case "macosx":
-      $fileName = "PDF4Teachers-MacOSX-<lastRelease>-BIN.zip";
+      $fileName = "PDF4Teachers-MacOSX-<lastRelease>.zip";
       break;
     case "linux":
       $fileName = "PDF4Teachers-Linux-<lastRelease>.deb";
       break;
     case "linuxrpm":
-      $fileName = "PDF4Teachers-Linux-<lastRelease>-BIN.tar.gz";
+      $fileName = "PDF4Teachers-Linux-<lastRelease>.tar.gz";
       break;
 }
 
@@ -51,7 +51,7 @@ if(gettype($oss) === "array"){
             $fileName = "PDF4Teachers-Linux-<lastRelease>.deb";
             break;
           case "linuxrpm":
-            $fileName = "PDF4Teachers-Linux-<lastRelease>-BIN.tar.gz";
+            $fileName = "PDF4Teachers-Linux-<lastRelease>.tar.gz";
             break;
         }
         echo '<a class="dropdown-item replace-lastrelease" href="' . $link . $fileName . '">' . t("button.download." . $oss[$i]) . '</a>';
