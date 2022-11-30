@@ -118,17 +118,19 @@ async function loadDownloadPage(tags, lastReleaseTag, toOpenTag){
             })
 
             // Open section if toOpenTag
-            if(tags.includes(toOpenTag)){
-                $(getTagSelector(toOpenTag) + ' i.fas').trigger("click");
-                const inter = setInterval(() => {
-                    $('html').scrollTop($(getTagSelector(toOpenTag)).offset().top - 31);
-                }, 50);
-                setTimeout(() => {
-                    clearInterval(inter);
-                }, 1000);
-            }else if(tags.includes(lastReleaseTag)){
-                $(getTagSelector(lastReleaseTag) + ' i.fas').trigger("click");
-            }
+            setTimeout(() => {
+                if(tags.includes(toOpenTag)){
+                    $(getTagSelector(toOpenTag) + ' i.fas').trigger("click");
+                    const inter = setInterval(() => {
+                        $('html').scrollTop($(getTagSelector(toOpenTag)).offset().top - 31);
+                    }, 50);
+                    setTimeout(() => {
+                        clearInterval(inter);
+                    }, 1000);
+                }else if(tags.includes(lastReleaseTag)){
+                    $(getTagSelector(lastReleaseTag) + ' i.fas').trigger("click");
+                }
+            }, 500)
         }
     });
 }

@@ -5,6 +5,8 @@
 <!--          PAGE INFO          -->
 <head>
 	<?php require '../analytics.php'; ?>
+    <!-- Support custom elements for safari -->
+    <script src="//unpkg.com/@ungap/custom-elements/es.js"></script>
 
 	<meta name="description" content="<?= t("page.description") ?>" />
 	<meta name="keywords" content="<?= t("page.keywords") ?>" />
