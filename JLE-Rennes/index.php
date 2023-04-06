@@ -1,4 +1,4 @@
-<?php $acc=false; $page="JLE-Rennes"; ?>
+<?php $acc=false; $page="JLE-Rennes"; require "../php/translator.php"; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
