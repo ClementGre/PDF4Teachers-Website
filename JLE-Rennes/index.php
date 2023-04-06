@@ -37,7 +37,7 @@
 			<h2>Découverte de PDF4Teachers à la journée du libre éducatif 2023 à Rennes</h2><br/>
 			<p>Voici les liens qui vous serviront à suivre l'atelier de PDF4Teachers :</p>
 			<ul>
-				<li><a href="https://pdf4teachers-jdle.limesurvey.net/754964?lang=fr">Lien du sondage pour les ateliers</a></li>
+				<li><a href="https://pdf4teachers-jdle.limesurvey.net/754964?lang=fr" target="_blank">Lien du sondage pour les ateliers</a></li>
 				<li><a href="../data/JourneeLibreEducatif2023.zip">Télécharger les documents de l'atelier</a></li>
 			</ul>
 		</div>
