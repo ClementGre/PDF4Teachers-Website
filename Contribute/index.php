@@ -36,14 +36,14 @@
 	<main>
 
 		<div class="info">
-			<h2><?= t("title.weblate") ?></h2><br/>
+			<h2><?= t("title.translate-weblate") ?></h2><br/>
 			<p>
 				<?= t("text.translate-weblate.preambule") ?><br/><br/>
-
-				<div style="text-align: center;">
-					<a class="btn btn-primary" href="https://weblate.pdf4teachers.org/projects/" target="_blank" role="button">Weblate</a><br/><br/>
-				</div>
-
+			</p>
+			<div style="text-align: center;">
+				<a class="btn btn-primary" href="https://weblate.pdf4teachers.org/projects/" target="_blank" role="button">Weblate</a><br/><br/>
+			</div>
+			<p>
 				<?= t("text.translate-weblate.details") ?><br/><br/><br/>
 				<?= t("text.translate-weblate.parameters") ?>
 			</p>
