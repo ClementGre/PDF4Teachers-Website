@@ -36,6 +36,20 @@
 	<main>
 
 		<div class="info">
+			<h2><?= t("title.weblate") ?></h2><br/>
+			<p>
+				<?= t("text.translate-weblate.preambule") ?><br/><br/>
+
+				<div style="text-align: center;">
+					<a class="btn btn-primary" href="https://weblate.pdf4teachers.org/projects/" target="_blank" role="button">Weblate</a><br/><br/>
+				</div>
+
+				<?= t("text.translate-weblate.details") ?><br/><br/><br/>
+				<?= t("text.translate-weblate.parameters") ?>
+			</p>
+
+			<br><hr><br>
+
 			<h2><?= t("title.translate-app") ?></h2><br/>
 			<p>
                 <?= t("text.translate-app.preambule") ?><br/><br/>
@@ -54,7 +68,7 @@
             </p>
 
             <br><hr><br>
-			
+
             <h2><?= t("title.translate-site") ?></h2><br/>
 			<p>
                 <?= t("text.translate-site.preambule") ?><br/><br/>
