@@ -18,7 +18,7 @@
   <div>
     <h3><?= t("title.contacts") ?></h3>
     <a href="https://github.com/ClementGre/PDF4Teachers/issues/new" target="_blank"><i class="fab fa-github"></i>&nbsp;<?= t("linkname.github.issues") ?></a>
-    <a href="https://twitter.com/pdf4teachers" target="_blank"><i class="fab fa-twitter"></i>&nbsp;Twitter</a>
+    <a href="https://twitter.com/pdf4teachers" target="_blank"><i class="fa-brands fa-x-twitter"></i>&nbsp;X</a>
     <a href="#" onclick="openEmailPopup(event)"><i class="fas fa-envelope"></i>&nbsp;Email</a>
   </div>
   <div>
@@ -31,7 +31,7 @@
 </div>
 <hr/>
 <div class="bottom">
-  <h3 class="left">Copyright &copy; PDF4Teachers - 2020</h3>
+  <h3 class="left">Copyright &copy; PDF4Teachers - 2020 - <?= date("Y") ?></h3>
   <h3 class="right"><?= t("message.developper") ?><?php if(strcmp(t("message.translator"), "traduit par xxx") !== 0){ echo ', ' . t("message.translator"); } ?></h3>
 </div>
 
