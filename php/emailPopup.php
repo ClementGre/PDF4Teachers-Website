@@ -26,7 +26,7 @@
         <p>
             <?= t("emailpopup.emailAnyway"); ?>
         </p>
-        <a href="<?= "clement.grennerat"."@"."clgr.io" ?>" target="_blank">
+        <a href="<?= "mai"."lto:clement.grennerat"."@"."clgr.io" ?>" target="_blank">
             <?= "clement.grennerat"."@"."clgr.io" ?>
         </a>
     </div>
