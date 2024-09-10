@@ -53,7 +53,7 @@
                     'windows' =>
                         ['msi' => 'Windows-<lastRelease>.msi',
                             'zip' => 'Windows-<lastRelease>.zip',
-                            'zip <span style="font-size: 13px">(32 bits)</span>' => 'Windows32-<lastRelease>.zip'],
+                            'zip <span style="font-size: 13px">(32 bits, v1.4.1)</span>' => 'https://github.com/ClementGre/PDF4Teachers/releases/download/1.4.1/PDF4Teachers-Windows32-1.4.1.zip'],
                     'macos' =>
                         ['dmg <span style="font-size: 13px">(Apple Silicon)</span>' => 'MacOSX-AArch64-<lastRelease>.dmg',
                             'dmg <span style="font-size: 13px">(Intel)</span>' => 'MacOSX-<lastRelease>.dmg']];
@@ -64,7 +64,10 @@
                     foreach($files as $ext => $name){
                         $class = $i == 0 ? 'dl-default' : (count($files) == $i + 1 ? 'dl-last' : 'dl-middle');
                         if($i == 0 && count($files) !== 1) $class .= ' dl-first';
-                        echo '<a href="' . $link . $name .'" class="replace-lastrelease '.$class.'">
+
+                        $url = substr($name, 0, 4 ) === "http" ? $name : $link . $name;
+
+                        echo '<a href="' . $url .'" class="replace-lastrelease '.$class.'">
                                 '. ($i == 0 ? '<img src="../data/small-img/os/'.$os.'.png" alt="Linux">' : '') . '
                                 <p>.'.$ext.'</p>
                             </a>';
