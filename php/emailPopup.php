@@ -26,8 +26,8 @@
         <p>
             <?= t("emailpopup.emailAnyway"); ?>
         </p>
-        <a href="<?= "mai"."lto:clement.grennerat"."@"."clgr.io" ?>" target="_blank">
-            <?= "clement.grennerat"."@"."clgr.io" ?>
+        <a href="<?= "mai"."lto:pdf4teachers"."@"."clgr.io" ?>" target="_blank">
+            <?= "pdf4teachers"."@"."clgr.io" ?>
         </a>
     </div>
 </div>
