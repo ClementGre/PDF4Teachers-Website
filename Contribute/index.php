@@ -41,7 +41,7 @@
 				<?= t("text.translate-weblate.preambule") ?><br/><br/>
 			</p>
 			<div style="text-align: center;">
-				<a class="btn btn-primary" href="https://weblate.pdf4teachers.org/projects/" target="_blank" role="button">Weblate</a><br/><br/>
+				<a class="btn btn-primary" href="https://weblate.clgr.io/projects/" target="_blank" role="button">Weblate</a><br/><br/>
 			</div>
 			<p>
 				<?= t("text.translate-weblate.details") ?><br/><br/><br/>

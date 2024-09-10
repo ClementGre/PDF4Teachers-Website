@@ -18,7 +18,7 @@
   <div>
     <h3><?= t("title.contacts") ?></h3>
     <a href="https://github.com/ClementGre/PDF4Teachers/issues/new" target="_blank"><i class="fab fa-github"></i>&nbsp;<?= t("linkname.github.issues") ?></a>
-    <a href="https://twitter.com/pdf4teachers" target="_blank"><i class="fa-brands fa-x-twitter"></i>&nbsp;X</a>
+    <a href="https://x.com/Pdf4Teachers" target="_blank"><i class="fa-brands fa-x-twitter"></i>&nbsp;X</a>
     <a href="#" onclick="openEmailPopup(event)"><i class="fas fa-envelope"></i>&nbsp;Email</a>
   </div>
   <div>
