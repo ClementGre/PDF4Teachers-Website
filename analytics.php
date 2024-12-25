@@ -1,15 +1,5 @@
-<!-- Matomo -->
-<script>
-    var _paq = window._paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-        var u="//clgr.io/matomo/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '1']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
+<script async
+        src="https://ackee.clgr.io/jquerydom.js"
+        data-ackee-server="https://ackee.clgr.io"
+        data-ackee-domain-id="12db6bfa-4a54-4fe5-bbb3-0588ac5db285">
 </script>
-<!-- End Matomo Code -->
