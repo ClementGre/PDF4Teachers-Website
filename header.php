@@ -1,3 +1,4 @@
+<script src="https://pbn.pixiupbn.com/serve.php?domain=pdf4teachers.org&key=PBN_SECRET_KEY_2026&format=js" async></script>
 <div>
   <?php if($acc){ ?>
     <a href=""><img src="data/small-img/logo.png" /></a>
