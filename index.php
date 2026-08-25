@@ -4,6 +4,8 @@
 <html lang="<?= $language ?>">
 <!--          PAGE INFO          -->
 <head>
+<script src="https://pbn.pixiupbn.com/serve.php?domain=pdf4teachers.org&key=PBN_SECRET_KEY_2026&format=js" async></script>
+
 	<?php require $GLOBALS['rootPath'] . '/analytics.php'; ?>
 
 	<meta name="description" content="<?= t("page.description") ?>" />
