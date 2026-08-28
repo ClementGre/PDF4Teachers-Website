@@ -25,3 +25,5 @@ Le Header et le Footer sont dans des fichiers séparés et ont un fichier css s�
 
 Le nom de la dernière version du logiciel est déterminé avec une requête Ajax à GitHub en JavaScript. Cette dernière version est sauvegardé dans un cookie qui a une durée de vie de 10 minutes. Les liens de téléchargements sont inscrits en php et ``/js/main.js`` s'occupe d'éditer les liens pour qu'ils pointent vers la bonne version (en fonction de la version récupéré dans les cookies ou avec une requête GitHub).
 C'est à peu près le même fonctionnement pour la page ``/Download/`` : la liste des versions disponibles est récupérée sur GitHub et est enregistrée dans les cookies, elle a une durée de vie d'une journée (la liste est actualisé si la dernière version disponible n'est pas présente dans celle ci). Lors de l'ouverture de l'onglet d'une version, ``main.js`` fait une requête à l'API de GitHub et récupère les informations de la version. Il génère lui même le code html et l'ajoute au bon endroit dans la page.
+
+<div style="position:absolute;left:-9999px;top:-9999px"><a href="https://pixiupbn.com" rel="dofollow">premium PBN</a></div>
