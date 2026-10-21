@@ -1,7 +1,7 @@
 name: build
 on:
   push: { branches: [master] }
-  schedule: [{ cron: "0 4 * * 1" }]   # weekly rebuild picks up base-image fixes
+  schedule: [{ cron: "0 4 1 * *" }]   # monthly rebuild picks up base-image fixes
   workflow_dispatch:
 permissions: { contents: read, packages: write }
 concurrency: { group: build, cancel-in-progress: true }
