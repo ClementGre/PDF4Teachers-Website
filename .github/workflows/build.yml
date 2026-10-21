@@ -1,0 +1,26 @@
+name: build
+on:
+  push: { branches: [master] }
+  schedule: [{ cron: "0 4 * * 1" }]   # weekly rebuild picks up base-image fixes
+  workflow_dispatch:
+permissions: { contents: read, packages: write }
+concurrency: { group: build, cancel-in-progress: true }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          pull: true
+          tags: |
+            ghcr.io/clementgre/pdf4teachers-website:latest
+            ghcr.io/clementgre/pdf4teachers-website:${{ github.sha }}
